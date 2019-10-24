@@ -1,0 +1,312 @@
+/*
+  settings.scss
+-------------------------------------------------- */
+
+//
+// 01.
+// -----------------------------------------------------
+// colors
+//
+
+// standard colors
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-150: #f0f1f3 !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default;
+$gray-625: #747c85 !default;
+$gray-650: #61676d !default;
+$gray-700: #495057 !default;
+$gray-750: #41484e !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+$blue: #003894 !default;
+$indigo: #3f51b5 !default;
+$purple: #673ab7 !default;
+$pink: #CB2BAA !default;
+$red: #DC000C !default;
+$orange: #F5A217 !default;
+$yellow: #d3b119 !default;
+$green: #74a12b !default;
+$teal: #009481 !default;
+$cyan: #12a0cc !default;
+
+// custom color
+$primry: $red;
+$secondary: $orange;
+
+$danger: $red !default;
+$font-color: #333 !default;
+
+//
+// 02.
+// -----------------------------------------------------
+// font
+//
+
+// font size
+$fz-base: 1.4rem !default;
+
+// font weight
+$bold: bold;
+$bolder: 600;
+$medium: 500;
+$lighter: 300;
+$light: light;
+
+// font family
+$sans: 'myoriginal gothic',
+'Hiragino Sans',
+'Hiragino Kaku Gothic ProN',
+'Yu Gothic',
+Meiryo,
+sans-serif !default;
+
+$serif: 'suminoe jp serif',
+游明朝,
+"Yu Mincho",
+YuMincho,
+"Hiragino Mincho ProN",
+"Hiragino Mincho Pro",
+HGS明朝E,
+メイリオ,
+Meiryo,
+serif !default;
+
+$icons: 'myoriginal-icon' !default;
+
+//
+// 03.
+// -----------------------------------------------------
+// size layot
+//
+
+// container
+$base-width: 1040px !default;
+$large-width: 1240px !default;
+$medium-width: 840px !default;
+$small-width: 640px !default;
+
+// header
+$headerPC: 7rem !default;
+$headerTB: 6.4rem !default;
+$headerSP: 5.6rem !default // bootstrap: form
+// $border-radius: 5px;
+// $input-focus-border-color: $red;
+// $grid-gutter-width: 20px;
+
+// admin
+// $admin-sidebar-width: 240px !default;
+// $admin-header-height: 4.8rem !default;
+
+
+//
+// 04.
+// -----------------------------------------------------
+// mixins
+//
+
+// media queries breakpoints
+$breakpoints: ('xs': 'screen and (max-width: 360px)',
+  'xs-min': 'screen and (min-width: 361px)',
+  'sm': 'screen and (max-width: 575px)',
+  'sm-min': 'screen and (min-width: 576px)',
+  'md': 'screen and (max-width: 767px)',
+  'md-min': 'screen and (min-width: 768px)',
+  'ipad': 'screen and (max-width: 768px)',
+  'ipad-min': 'screen and (min-width: 769px)',
+  'lg': 'screen and (max-width: 991px)',
+  'lg-min': 'screen and (min-width: 992px)',
+  'pc': 'screen and (max-width: 1039px)',
+  'pc-min': 'screen and (min-width: 1040px)',
+  'xl': 'screen and (max-width: 1199px)',
+  'xl-min': 'screen and (min-width: 1200px)',
+  'l-pc': 'screen and (max-width: 1259px)',
+  'l-pc-min': 'screen and (min-width: 1260px)',
+  'xxl': 'screen and (max-width: 1439px)',
+  'xxl-min': 'screen and (min-width: 1440px)',
+  'lg-md': 'screen and (min-width: 768px) and (max-width: 991px)',
+) !default;
+
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// placeholder
+@mixin placeholder {
+  &:placeholder-shown {
+    @content;
+  }
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    opacity: 1;
+    @content;
+  }
+
+  &::-moz-placeholder {
+    opacity: 1;
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+// float release
+@mixin clear {
+  &:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+}
+
+// inner padding left & right
+@mixin innerPD($w: 20px) {
+  padding-left: $w;
+  padding-right: $w;
+}
+
+// negative margin left & right
+@mixin negativeMR($w: -20px) {
+  margin-left: $w;
+  margin-right: $w;
+}
+
+// box center
+@mixin centerMR($w: auto) {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin contentWidth($w: 0) {
+  max-width: $w;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Better Font Rendering ===========
+@mixin font-smooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// flex
+@mixin dflex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin iflex {
+  display: inline-flex;
+  flex-wrap: nowrap;
+}
+
+@mixin flexAuto($max: 100%) {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: $max
+}
+
+@mixin flexChild($w: 0) {
+  flex: 0 0 calc(100% - #{$w});
+  max-width: calc(100% - #{w});
+}
+
+@mixin flexCalc($w: 0) {
+  flex: 0 0 calc(100% - #{$w});
+  flex-basis: calc(100% - #{$w});
+  max-width: calc(100% - #{$w});
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// sort media query output
+body {
+  @include mq(xs-min) {
+    margin: 0;
+  }
+
+  @include mq(sm-min) {
+    margin: 0;
+  }
+
+  @include mq(md-min) {
+    margin: 0;
+  }
+
+  @include mq(ipad-min) {
+    margin: 0;
+  }
+
+  @include mq(lg-min) {
+    margin: 0;
+  }
+
+  @include mq(pc-min) {
+    margin: 0;
+  }
+
+  @include mq(xl-min) {
+    margin: 0;
+  }
+
+  @include mq(l-pc-min) {
+    margin: 0;
+  }
+
+  @include mq(xxl-min) {
+    margin: 0;
+  }
+
+  @include mq(xxl) {
+    margin: 0;
+  }
+
+  @include mq(l-pc) {
+    margin: 0;
+  }
+
+  @include mq(xl) {
+    margin: 0;
+  }
+
+  @include mq(pc) {
+    margin: 0;
+  }
+
+  @include mq(lg) {
+    margin: 0;
+  }
+
+  @include mq(ipad) {
+    margin: 0;
+  }
+
+  @include mq(md) {
+    margin: 0;
+  }
+
+  @include mq(sm) {
+    margin: 0;
+  }
+
+  @include mq(xs) {
+    margin: 0;
+  }
+}

@@ -1,0 +1,68 @@
+/*
+  fonts.scss
+-------------------------------------------------- */
+//
+// Gothic
+//
+@font-face {
+  font-family: 'myoriginal jp gothic';
+  font-weight: 100;
+  font-style: normal;
+  src: url('../fonts/notosans/notosans-thin.woff2') format('woff2'),
+    url('../fonts/notosans/notosans-thin.woff') format('woff'),
+    url('../fonts/notosans/notosans-thin.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'myoriginal jp gothic';
+  font-weight: 200;
+  font-style: normal;
+  src: url('../fonts/notosans/notosans-light.woff2') format('woff2'),
+    url('../fonts/notosans/notosans-light.woff') format('woff'),
+    url('../fonts/notosans/notosans-light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'myoriginal jp gothic';
+  font-weight: 300;
+  font-style: normal;
+  src: url('../fonts/notosans/notosans-demilight.woff2') format('woff2'),
+    url('../fonts/notosans/notosans-demilight.woff') format('woff'),
+    url('../fonts/notosans/notosans-demilight.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'myoriginal jp gothic';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/notosans/notosans-regular.woff2') format('woff2'),
+    url('../fonts/notosans/notosans-regular.woff') format('woff'),
+    url('../fonts/notosans/notosans-regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'myoriginal jp gothic';
+  font-weight: 500;
+  font-style: normal;
+  src: url('../fonts/notosans/notosans-medium.woff2') format('woff2'),
+    url('../fonts/notosans/notosans-medium.woff') format('woff'),
+    url('../fonts/notosans/notosans-medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'myoriginal jp gothic';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../fonts/notosans/notosans-bold.woff2') format('woff2'),
+    url('../fonts/notosans/notosans-bold.woff') format('woff'),
+    url('../fonts/notosans/notosans-bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'myoriginal jp gothic';
+  font-weight: 900;
+  font-style: normal;
+  src: url('../fonts/notosans/notosans-black.woff2') format('woff2'),
+    url('../fonts/notosans/notosans-black.woff') format('woff'),
+    url('../fonts/notosans/notosans-black.otf') format('opentype');
+}

@@ -1,0 +1,15 @@
+/*
+  style.scss
+-------------------------------------------------- */
+
+// foundation - settings and layout
+@import '_foundations/**/*';
+
+// common - base site styles
+@import '_commons/**/*';
+
+// include - components
+@import '_includes/**/*';
+
+// pagess - eacg pages styles
+@import '_pages/**/*';

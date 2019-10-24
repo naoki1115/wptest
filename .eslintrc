@@ -1,0 +1,36 @@
+{
+	"extends": ["eslint:recommended", "prettier"],
+	"plugins": ["prettier"],
+	"env": {
+		"browser": true,
+		"node": true,
+		"es6": true,
+		"jquery": true
+	},
+	"rules": {
+		"prettier/prettier": [
+			"error",
+			{
+				"no-alert": 1,
+				"singleQuote": true,
+				"no-var": 2,
+				"prefer-const": 2,
+				"semi": false,
+				"no-multiple-empty-lines": [2, { "max": 2 }],
+				"eqeqeq": 2,
+				"bracketSpacing": true,
+				"key-spacing": [
+					2,
+					{
+						"beforeColon": false,
+						"afterColon": true,
+						"align": "colon"
+					}
+				]
+			}
+		]
+	},
+	"parserOptions": {
+		"sourceType": "module"
+	}
+}

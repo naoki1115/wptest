@@ -1,0 +1,33 @@
+# EditorConfig File
+root = true
+
+
+# all files
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# only html
+[*.{html,pug}]
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# only css
+[*.{scss,css}]
+
+# only js
+[*.{es6,js}]
+
+# only php
+[*.php]
+
+# only json
+[*.json]
+
+# only md
+[*.md]
+trim_trailing_whitespace = false

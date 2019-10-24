@@ -1,0 +1,81 @@
+/*
+  utility.scss
+-------------------------------------------------- */
+
+//
+// text
+//
+.t-tel-link {
+  &:hover {
+    text-decoration: none;
+  }
+
+  @include mq(ipad-min) {
+    pointer-events: none;
+  }
+}
+
+.t-left {
+  text-align: left !important;
+}
+
+.t-right {
+  text-align: right !important;
+}
+
+.t-center {
+  text-align: center !important;
+}
+
+.t-center-md-up {
+  @include mq(md-min) {
+    text-align: center !important
+  }
+
+  text-align: left;
+}
+
+.t-center-md-down {
+  text-align: left;
+
+  @include mq(md) {
+    text-align: center !important;
+  }
+}
+
+.t-ib-row {
+  >span {
+    display: inline-block;
+  }
+}
+
+.t-astarisk {
+  position: relative;
+  padding-left: 1.25em;
+
+  &:before {
+    content: '*';
+    position: absolute;
+    left: 0;
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      @include mq(ipad-min) {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.t-link-underline {
+  text-decoration: underline;
+
+  &:hover {
+    @include mq(ipad-min) {
+      text-decoration: none;
+    }
+  }
+}
