@@ -1,7 +1,4 @@
 /*
-  style.scss
--------------------------------------------------- */
-/*
   fonts.scss
 -------------------------------------------------- */
 @font-face {
@@ -693,7 +690,7 @@ img {
 }
 
 .form-control:disabled, .form-control[readonly] {
-  background-color: #e9ecef;
+  background-color: #eaeaea;
   opacity: 1;
 }
 
@@ -1201,7 +1198,7 @@ textarea.form-control {
   color: #495057;
   text-align: center;
   white-space: nowrap;
-  background-color: #e9ecef;
+  background-color: #eaeaea;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
 }
@@ -1313,7 +1310,7 @@ textarea.form-control {
 }
 
 .custom-control-input:disabled ~ .custom-control-label::before {
-  background-color: #e9ecef;
+  background-color: #eaeaea;
 }
 
 .custom-control-label {
@@ -1332,7 +1329,7 @@ textarea.form-control {
   pointer-events: none;
   content: "";
   background-color: #fff;
-  border: #adb5bd solid 1px;
+  border: #a0a0a0 solid 1px;
 }
 
 .custom-control-label::after {
@@ -1399,7 +1396,7 @@ textarea.form-control {
   left: calc(-2.25rem + 2px);
   width: calc(1rem - 4px);
   height: calc(1rem - 4px);
-  background-color: #adb5bd;
+  background-color: #a0a0a0;
   border-radius: 0.5rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
   transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -1454,7 +1451,7 @@ textarea.form-control {
 
 .custom-select:disabled {
   color: #868e96;
-  background-color: #e9ecef;
+  background-color: #eaeaea;
 }
 
 .custom-select::-ms-expand {
@@ -1500,7 +1497,7 @@ textarea.form-control {
 }
 
 .custom-file-input:disabled ~ .custom-file-label {
-  background-color: #e9ecef;
+  background-color: #eaeaea;
 }
 
 .custom-file-input:lang(en) ~ .custom-file-label::after {
@@ -1539,7 +1536,7 @@ textarea.form-control {
   line-height: 1.5;
   color: #495057;
   content: "Browse";
-  background-color: #e9ecef;
+  background-color: #eaeaea;
   border-left: inherit;
   border-radius: 0 0.25rem 0.25rem 0;
 }
@@ -1664,7 +1661,7 @@ textarea.form-control {
 }
 
 .custom-range:disabled::-webkit-slider-thumb {
-  background-color: #adb5bd;
+  background-color: #a0a0a0;
 }
 
 .custom-range:disabled::-webkit-slider-runnable-track {
@@ -1672,7 +1669,7 @@ textarea.form-control {
 }
 
 .custom-range:disabled::-moz-range-thumb {
-  background-color: #adb5bd;
+  background-color: #a0a0a0;
 }
 
 .custom-range:disabled::-moz-range-track {
@@ -1680,7 +1677,7 @@ textarea.form-control {
 }
 
 .custom-range:disabled::-ms-thumb {
-  background-color: #adb5bd;
+  background-color: #a0a0a0;
 }
 
 .custom-control-label::before,
@@ -1849,17 +1846,17 @@ iframe {
 }
 
 a {
-  transition: .3s all;
+  transition: 0.3s all;
 }
 
 sup {
   font-size: 90%;
-  top: -.4em;
+  top: -0.4em;
 }
 
 sup.s {
   font-size: 62.5%;
-  top: -.5em;
+  top: -0.5em;
 }
 
 .content-inner {
@@ -1917,6 +1914,17 @@ sup.s {
   overflow-y: auto;
 }
 
+.site-wrapper {
+  position: relative;
+}
+
+.site-wrapper .site-line {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 1px;
+}
+
 /*
   utility.scss
 -------------------------------------------------- */
@@ -1965,31 +1973,6 @@ sup.s {
 
 .t-link-underline {
   text-decoration: underline;
-}
-
-/*
-  components.scss
--------------------------------------------------- */
-.site-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  visibility: hidden;
-  opacity: 0;
-  z-index: 10;
-}
-
-.nav-open .site-overlay {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal-open .site-overlay {
-  opacity: 1;
-  visibility: visible;
 }
 
 @media screen and (min-width: 361px) {

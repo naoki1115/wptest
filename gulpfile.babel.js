@@ -60,7 +60,7 @@ const cssPaths = {
   srcGlob: `${paths.src}/src/css`,
   destGlob: `${paths.dest}${cssAssets}`,
   plugins: `${paths.dest}${cssPlugins}`,
-  htdestGlob: `${paths.htdocs}${cssPlugins}`
+  htdestGlob: `${paths.htdocs}${cssAssets}`
 }
 
 // html folder
@@ -129,11 +129,11 @@ const devServer = cb => {
   if (env === 'DEV') {
     browserSync.init({
       server: {
-        baseDir: paths.dest,
+        baseDir: paths.htdocs,
         index: 'index.html',
         middleware: [
           $.connectSSI({
-            baseDir: paths.dest,
+            baseDir: paths.htdocs,
             ext: '.html'
           })
         ]
@@ -225,12 +225,12 @@ export const styles = () => {
         errorHandler: onError
       })
     )
-    .pipe($.if(env === 'DEV', $.sourcemaps.init()))
+    .pipe($.sourcemaps.init())
     .pipe($.sassGlob())
     .pipe($.sass(sassOptions))
     .pipe($.postcss(postcssPlugins))
     .pipe(dest(cssPaths.srcGlob))
-    .pipe($.if(env === 'DEV', $.sourcemaps.write()))
+    .pipe($.sourcemaps.write())
     .pipe($.cssnano())
     .pipe(dest(cssPaths.destGlob))
     .pipe(

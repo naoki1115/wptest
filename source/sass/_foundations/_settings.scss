@@ -36,11 +36,15 @@ $teal: #009481 !default;
 $cyan: #12a0cc !default;
 
 // custom color
-$primry: $red;
-$secondary: $orange;
-
 $danger: $red !default;
 $font-color: #333 !default;
+$gray-bg: #f7f7f7;
+
+$primry: $font-color;
+$secondary: $orange;
+
+$gray-200: #eaeaea;
+$gray-500: #a0a0a0;
 
 //
 // 02.
