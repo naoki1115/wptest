@@ -1,14 +1,7 @@
 // Gulp module imports
 // ----
 global.env = process.env.NODE_ENV || 'DEV'
-import {
-  src,
-  dest,
-  watch,
-  parallel,
-  series,
-  lastRun
-} from 'gulp'
+import { src, dest, watch, parallel, series, lastRun } from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 const $ = gulpLoadPlugins({
   pattern: [
@@ -38,6 +31,7 @@ const browserSync = $.browserSync.create()
 const paths = {
   src: './source', // Source Folder
   dest: './theme/myoriginal', // Dest Folder
+  htdocs: './htdocs/', // html templates
   ast: './theme/myoriginal/assets'
 }
 const assets = '/assets'
@@ -89,7 +83,7 @@ const devSrc = `${paths.src}/dev/**/*`
 
 const jsPluginsList = [
   './node_modules/jquery/dist/jquery.js',
-  './node_modules/jquery/dist/jquery.min.js',
+  './node_modules/jquery/dist/jquery.min.js'
   // './node_modules/swiper/dist/js/swiper.js',
   // './node_modules/swiper/dist/js/swiper.min.js',
 ]
@@ -124,7 +118,7 @@ const devServer = cb => {
           })
         ]
       },
-      port: 8014,
+      port: 8888,
       open: false,
       notify: false
     })
@@ -132,17 +126,26 @@ const devServer = cb => {
   cb()
 }
 
+/**
+ * live reload
+ */
+const devReload = () => browserSync.reload()
 
 /**
  * watch
  */
 export const devWatch = cb => {
-  watch(cssPaths.src, series(styles, cssMinify))
-  watch(imagesPaths.src, series(imageMinify))
+  if (env === 'DEV') {
+    watch(htmlPaths.src, series(html))
+    watch(jsPaths.src, series(scripts, jsMinify))
+    watch(cssPaths.src, series(styles, cssMinify))
+    watch(imagesPaths.src, series(imageMinify))
+    watch(paths.dest).on('change', devReload)
+  }
   cb()
 }
 
-const onError = function (err) {
+const onError = function(err) {
   $.notify.onError({
     title: 'error',
     message: '<%= error.message %>'
@@ -155,24 +158,24 @@ const onError = function (err) {
  */
 export const scripts = () =>
   src(jsPaths.src)
-  .pipe(
-    $.plumber({
-      errorHandler: onError
-    })
-  )
-  .pipe($.if(env === 'DEV', $.sourcemaps.init()))
-  .pipe($.babel())
-  .pipe(dest(jsPaths.srcGlob))
-  .pipe($.if(env === 'DEV', $.sourcemaps.write()))
-  .pipe($.sourcemaps.write())
-  .pipe(
-    $.if(
-      env !== 'DEV',
-      dest(`${buildPath}${jsAssets}`),
-      dest(jsPaths.destGlob)
+    .pipe(
+      $.plumber({
+        errorHandler: onError
+      })
     )
-  )
-  .pipe(browserSync.stream())
+    .pipe($.if(env === 'DEV', $.sourcemaps.init()))
+    .pipe($.babel())
+    .pipe(dest(jsPaths.srcGlob))
+    .pipe($.if(env === 'DEV', $.sourcemaps.write()))
+    .pipe($.sourcemaps.write())
+    .pipe(
+      $.if(
+        env !== 'DEV',
+        dest(`${buildPath}${jsAssets}`),
+        dest(jsPaths.destGlob)
+      )
+    )
+    .pipe(browserSync.stream())
 
 /**
  * sass
@@ -221,96 +224,50 @@ export const styles = () => {
 /**
  * pug
  */
-// const pugOptions = {
-//   pretty: '  ', // indent style
-//   basedir: htmlPaths.base
-// }
-// export const html = () =>
-//   src(htmlPaths.src)
-//     .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
-//     .pipe(
-//       $.changed(paths.dest, {
-//         extension: '.html'
-//       })
-//     )
-//     .pipe($.cached('pug'))
-//     .pipe(
-//       $.debug({
-//         title: 'pug-debug-before'
-//       })
-//     )
-//     .pipe(
-//       $.pugInheritance({
-//         basedir: htmlPaths.base,
-//         skip: 'node_modules'
-//       })
-//     )
-//     .pipe(
-//       $.debug({
-//         title: 'pug-debug-after'
-//       })
-//     )
-//     .pipe(
-//       $.filter(function(file) {
-//         return !/\/_/.test(file.path) && !/^_/.test(file.relative)
-//       })
-//     )
-//     .pipe($.pug(pugOptions))
-//     .pipe($.if(env === 'DEV', $.replace('.min', '')))
-//     .pipe($.if(env === 'DEV', $.replace(`${buildFolder}`, '')))
-//     .pipe($.replace('target="blank"', 'target="blank" rel="noopener"')) // セキュリティ対策
-//     // .pipe($.if(env !== 'DEV', $.replace('<!-- ga-->', ga)))
-//     // .pipe($.if(env !== 'DEV', $.replace('<!-- gtm-->', gtm)))
-//     // .pipe($.if(env !== 'DEV', $.replace('<!-- ytm-->', ytm)))
-//     .pipe($.if(env !== 'DEV', $.replace('__NOCACHE__', Date.now())))
-//     .pipe($.if(env !== 'DEV', dest(`${buildPath}`), dest(paths.dest)))
-//     .pipe(browserSync.stream())
-
-// export const htmlPhp = () =>
-//   src(`${paths.src}/pug/contact/**/*.pug`)
-//     .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
-//     .pipe(
-//       $.changed(paths.dest, {
-//         extension: '.php'
-//       })
-//     )
-//     .pipe($.cached('pug'))
-//     .pipe(
-//       $.debug({
-//         title: 'pug-debug-before'
-//       })
-//     )
-//     .pipe(
-//       $.pugInheritance({
-//         basedir: htmlPaths.base,
-//         skip: 'node_modules'
-//       })
-//     )
-//     .pipe(
-//       $.debug({
-//         title: 'pug-debug-after'
-//       })
-//     )
-//     .pipe(
-//       $.filter(function(file) {
-//         return !/\/_/.test(file.path) && !/^_/.test(file.relative)
-//       })
-//     )
-//     .pipe($.pug(pugOptions))
-//     .pipe($.if(env === 'DEV', $.replace('.min', '')))
-//     .pipe($.if(env === 'DEV', $.replace(`${buildFolder}`, '')))
-//     .pipe($.replace('target="blank"', 'target="blank" rel="noopener"')) // セキュリティ対策
-//     // .pipe($.if(env !== 'DEV', $.replace('<!-- ga-->', ga)))
-//     // .pipe($.if(env !== 'DEV', $.replace('<!-- gtm-->', gtm)))
-//     // .pipe($.if(env !== 'DEV', $.replace('<!-- ytm-->', ytm)))
-//     .pipe($.if(env !== 'DEV', $.replace('__NOCACHE__', Date.now())))
-//     .pipe(
-//       $.rename({
-//         extname: '.php'
-//       })
-//     )
-//     .pipe($.if(env !== 'DEV', dest(`${buildPath}`), dest(paths.dest)))
-//     .pipe(browserSync.stream())
+const pugOptions = {
+  pretty: '  ', // indent style
+  basedir: htmlPaths.base
+}
+export const html = () =>
+  src(htmlPaths.src)
+    .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
+    .pipe(
+      $.changed(paths.dest, {
+        extension: '.html'
+      })
+    )
+    .pipe($.cached('pug'))
+    .pipe(
+      $.debug({
+        title: 'pug-debug-before'
+      })
+    )
+    .pipe(
+      $.pugInheritance({
+        basedir: htmlPaths.base,
+        skip: 'node_modules'
+      })
+    )
+    .pipe(
+      $.debug({
+        title: 'pug-debug-after'
+      })
+    )
+    .pipe(
+      $.filter(function(file) {
+        return !/\/_/.test(file.path) && !/^_/.test(file.relative)
+      })
+    )
+    .pipe($.pug(pugOptions))
+    .pipe($.if(env === 'DEV', $.replace('.min', '')))
+    .pipe($.if(env === 'DEV', $.replace(`${buildFolder}`, '')))
+    .pipe($.replace('target="blank"', 'target="blank" rel="noopener"')) // セキュリティ対策
+    // .pipe($.if(env !== 'DEV', $.replace('<!-- ga-->', ga)))
+    // .pipe($.if(env !== 'DEV', $.replace('<!-- gtm-->', gtm)))
+    // .pipe($.if(env !== 'DEV', $.replace('<!-- ytm-->', ytm)))
+    .pipe($.if(env !== 'DEV', $.replace('__NOCACHE__', Date.now())))
+    .pipe($.if(env !== 'DEV', dest(`${buildPath}`), dest(paths.dest)))
+    .pipe(browserSync.stream())
 
 const uglifyOptions = {
   compress: {
@@ -330,30 +287,30 @@ const renameTransform = {
  */
 export const jsMinify = () =>
   src(jsPaths.minSrc)
-  .pipe($.uglify(uglifyOptions))
-  .pipe($.rename(renameTransform))
-  .pipe(
-    $.if(
-      env !== 'DEV',
-      dest(`${buildPath}${jsAssets}`),
-      dest(jsPaths.destGlob)
+    .pipe($.uglify(uglifyOptions))
+    .pipe($.rename(renameTransform))
+    .pipe(
+      $.if(
+        env !== 'DEV',
+        dest(`${buildPath}${jsAssets}`),
+        dest(jsPaths.destGlob)
+      )
     )
-  )
 
 /**
  * CSS Minify
  */
 export const cssMinify = () =>
   src(cssPaths.minSrc)
-  .pipe($.cleanCSS())
-  .pipe($.rename(renameTransform))
-  .pipe(
-    $.if(
-      env !== 'DEV',
-      dest(`${buildPath}${cssAssets}`),
-      dest(cssPaths.destGlob)
+    .pipe($.cleanCSS())
+    .pipe($.rename(renameTransform))
+    .pipe(
+      $.if(
+        env !== 'DEV',
+        dest(`${buildPath}${cssAssets}`),
+        dest(cssPaths.destGlob)
+      )
     )
-  )
 
 /**
  * Images Minify
@@ -435,11 +392,11 @@ export const iconfont = () => {
     .pipe($.iconfont(fontOptions))
 
   return iconStream
-    .on('glyphs', function (glyphs, options) {
+    .on('glyphs', function(glyphs, options) {
       const engine = 'lodash',
         className = 'icon'
 
-      glyphs = glyphs.map(function (glyph) {
+      glyphs = glyphs.map(function(glyph) {
         return {
           name: glyph.name,
           codepoint: glyph.unicode[0].charCodeAt(0).toString(16) // convert decimal to hex
@@ -511,9 +468,10 @@ export const iconfont = () => {
 
 // copy run
 // ----
-export const copy = parallel(staticCopy, pluginsCopy, /** stylesCopy */ )
+export const copy = parallel(staticCopy, pluginsCopy /** stylesCopy */)
 // export const copy = parallel(staticCopy, devCopy)
 export const init = series(clean, parallel(copy, iconfont))
-export const compile = parallel(scripts, styles, /** html */ )
+export const compile = parallel(scripts, styles, html)
 export const minify = parallel(jsMinify, cssMinify, imageMinify)
-exports.default = series(init, compile, devWatch)
+
+exports.default = series(init, compile, minify, parallel(devServer, devWatch))

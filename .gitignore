@@ -5,3 +5,5 @@ node_modules/
 Thumbs.db
 dest/**
 htdocs/**
+
+theme/myoriginal/assets/**
