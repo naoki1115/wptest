@@ -13,6 +13,7 @@ function theme_dashboard_widgets()
   remove_meta_box('vk_dashboard_widget', 'dashboard', 'normal'); // vk target news
   remove_meta_box('wpseo-dashboard-overview', 'dashboard', 'normal'); // yoast
 }
+
 // ダッシュボードにサーバー情報を表示させる
 function theme_dashboard_widget_serverinfo()
 {
