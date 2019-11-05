@@ -1,0 +1,83 @@
+//- footer.pug
+-
+  var footerLink = [
+    {
+      txt: 'HOME',
+      page: '/'
+    },
+    {
+      txt: '髙廣製本の強み',
+      page: '/strength/'
+    },
+    {
+      txt: '<span>生産設備・</span><span>製本プロセス</span>',
+      page: '/facilities/'
+    },
+    {
+      txt: '会社情報',
+      page: '/company/',
+      child: [
+        {
+          txt: '沿革',
+          page: '/company/history/'
+        }
+      ]
+    },
+    {
+      txt: '採用情報',
+      page: '/recruit/',
+      child: [
+        {
+          txt: '社員紹介',
+          page: '/recruit/employee/'
+        }
+      ]
+    },
+    {
+      txt: 'お問い合わせ',
+      page: '/contact/',
+      child: [
+        {
+          txt: '個人情報保護方針',
+          page: '/contact/#privacy'
+        }
+      ]
+    }
+  ]
+
+footer.footer#siteFooter
+  .footer__inner.content__inner
+    .footer__content
+      .footer__company
+        h1.footer__logo
+          img(src=`${imgPathCommon}/logo_secondary.png`)
+        .footer__contact
+          .button-container
+            a.btn.btn-primary.btn-radius.btn-contact(href='/contact/') お問い合わせ
+
+      .footer__info
+        .footer__info__company
+          p.info-address <span>本社工場・営業</span>大阪府八尾市竹渕東3丁目112
+          dl.info-tel
+            dt TEL :
+            dd
+              a.t-tel-link(href='tel:06-6796-8105') 06-6796-8105
+            dt FAX :
+            dd 06-6796-8106
+
+        .footer__info__nav
+          ul.nav-primary
+            each val in footerLink
+              li
+                a(href=val.page) !{val.txt}
+                if val.child
+                  ul.nav-secondary.hidden-xs-down
+                    each c in val.child
+                      li
+                        a(href=c.page) !{c.txt}
+
+  p.footer__copyright
+    small !{copyright}
+
+.gotop-btn#goTopBtn
+  a.btn-primary(href='#')

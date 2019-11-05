@@ -1,0 +1,110 @@
+extends /_includes/_layout.pug
+
+block head_meta
+  title #{baseTitle}
+  meta(name='description' content=baseDescription)
+
+block prepend css
+//- CSSを最後に追加する場合は block append css
+//- CSSをパスを変更する場合は block css
+
+block prepend head_script
+
+block content
+  - var imgSrc = `${imgPath}/index`
+
+  .site-wrapper#siteWrapper
+    header.header#siteHeader
+      include /_includes/_header
+
+    main.page-index
+      .mv__wrapper
+        .mv__inner
+          .mv__image
+            picture
+              source(media=`${mqSm}` srcset=`${imgSrc}/mv_sp.jpg`)
+              img(src=`${imgSrc}/mv_pc.jpg`).object-fit-img
+          .mv__ttl
+            h2 !{ttl}
+
+      article.content__wrapper
+        .section.index__about
+          .content__inner
+            .about__item.-strength
+              .about__item__info
+                .info__inner
+                  h2 髙廣製本の強み
+                  p.desc オペレーターのさらなるスキルアップ、新技術や設備機器の開発を進め、スピードと高品質を両立する独創的な生産ラインを実現しています。
+                  .button-group
+                    .btn-container.-left-up
+                      a.btn.btn-secondary(href='/strength/') 詳しく見る
+              .about__item__image
+                .image__inner
+                  figure
+                    img(src=`${imgSrc}/about_strength.jpg`)
+
+            .about__item.-facilities
+              .about__item__info
+                .info__inner
+                  h2 生産設備・製本プロセス
+                  p.desc 当社の製本設備と製本プロセスをご紹介いたします。
+                  .button-group
+                    .btn-container.-left-up
+                      a.btn.btn-secondary(href='/facilities/') 詳しく見る
+              .about__item__image
+                .image__inner
+                  figure
+                    img(src=`${imgSrc}/about_facilities.jpg`)
+
+        section.index__company.content-item
+          .section__cover-image
+            picture
+              source(media=`${mqSm}` srcset=`${imgSrc}/company_bg_sp.jpg`)
+              img(src=`${imgSrc}/company_bg_pc.jpg`).object-fit-img
+
+          .content__inner
+            h2.ttl-l.t-center.ttl-bg 会社情報
+            ul.row.list-figure-row.index__link__list
+              li.col-sm-6.col-12
+                .item__inner
+                  a(href='/company/')
+                    figure
+                      img(src=`${imgSrc}/company_philosophy.jpg`)
+                    h4.ttl--figure-cover.-l 企業理念・会社概要
+
+              li.col-sm-6.col-12
+                .item__inner
+                  a(href='/company/history/')
+                    figure
+                      img(src=`${imgSrc}/company_history.jpg`)
+                    h4.ttl--figure-cover.-l 沿革
+
+
+        section.index__recruit.content-item
+          h2.ttl-l.t-center.-side-pattern
+            span 採用情報
+
+          .content__inner
+            ul.row.list-figure-row.index__link__list
+              li.col-sm-6.col-12
+                .item__inner
+                  a(href='/recruit/')
+                    figure
+                      img(src=`${imgSrc}/recruit_description.jpg`)
+                    h4.ttl--figure-cover.-l.-has-underline 募集要項
+
+              li.col-sm-6.col-12
+                .item__inner
+                  a(href='/recruit/employee/')
+                    figure
+                      img(src=`${imgSrc}/recruit_employee.jpg`)
+                    h4.ttl--figure-cover.-l.-has-underline 社員紹介
+
+
+    //- footer
+    .footer-wrapper#footerWrapper
+      include /_includes/_footer
+
+block append script
+//- JSを最後に追加する場合は block append script
+//- JSのパスを変更する場合は block script

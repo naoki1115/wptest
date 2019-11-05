@@ -1,0 +1,72 @@
+//- header.pug
+
+-
+  var headerLink = [
+    {
+      txt: 'HOME',
+      page: '/'
+    },
+    {
+      txt: '髙廣製本の強み',
+      page: '/strength/'
+    },
+    {
+      txt: '生産設備・製本プロセス',
+      page: '/facilities/'
+    },
+    {
+      txt: '会社情報',
+      page: '/company/',
+      child: [
+        {
+          txt: '沿革',
+          page: '/company/history/'
+        }
+      ]
+    },
+    {
+      txt: '採用情報',
+      page: '/recruit/',
+      child: [
+        {
+          txt: '社員紹介',
+          page: '/recruit/employee/'
+        }
+      ]
+    }
+  ]
+
+.header__inner
+  .header__info__wrap
+    .header__info__bar
+      h1.header__logo
+        a(href='/')
+          img(src=`${imgPathCommon}/logo_primary.png` alt='株式会社 髙廣製本')
+
+      .header__nav__trigger.hidden-sm-up
+        button.header-trigger#spNavTrigger
+          span
+          span
+          span
+
+    .header__contact
+      .header__contact__tel
+        p.contact-tel
+          a.t-tel-link.-l(href='tel:06-6796-8105') TEL 06-6796-8105
+        span.contact-caution 受付時間 8:00〜16:45<br> (日・祝日除く。土曜のみ当社カレンダーによる。)
+      .header__contact__link
+        .btn-container
+          a.btn.btn-primary.btn-radius.btn-contact(href='/contact/') お問い合わせ
+
+  .header__nav
+    nav
+      ul.header__nav__list.nav-primary#headerNavPrimary
+        each val in headerLink
+          li
+            a.btn-white-primary(href=val.page) !{val.txt}
+            if val.child
+              ul.nav-secondary
+                each c in val.child
+                  li
+                    a.btn-white-primary(href=c.page) !{c.txt}
+

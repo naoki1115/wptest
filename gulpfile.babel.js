@@ -31,12 +31,13 @@ const browserSync = $.browserSync.create()
 const paths = {
   src: './source', // Source Folder
   dest: './theme/myoriginal', // Dest Folder
-  htdocs: './htdocs/', // html templates
-  ast: './theme/myoriginal/assets'
+  htdocs: './htdocs/' // html templates
 }
 const assets = '/assets'
 const buildFolder = '' // 入力する場合は先頭にスラッシュ・最後は付けない
 const buildPath = `${paths.dest}${buildFolder}`
+
+// js folder
 const jsAssets = `${assets}/js`
 const jsPlugins = `${jsAssets}/plugins`
 const jsPaths = {
@@ -44,8 +45,12 @@ const jsPaths = {
   minSrc: `${paths.src}/src/js/**/*.js`,
   srcGlob: `${paths.src}/src/js`,
   destGlob: `${paths.dest}${jsAssets}`,
-  plugins: `${paths.dest}${jsPlugins}`
+  plugins: `${paths.dest}${jsPlugins}`,
+  htdestGlob: `${paths.htdocs}${jsAssets}`,
+  htplugins: `${paths.htdocs}${jsPlugins}`
 }
+
+// css floder
 const sassFolder = '/sass'
 const cssAssets = `${assets}/css`
 const cssPlugins = `${cssAssets}/plugins`
@@ -54,26 +59,41 @@ const cssPaths = {
   minSrc: `${paths.src}/src/css/**/*.css`,
   srcGlob: `${paths.src}/src/css`,
   destGlob: `${paths.dest}${cssAssets}`,
-  plugins: `${paths.dest}${cssPlugins}`
+  plugins: `${paths.dest}${cssPlugins}`,
+  htdestGlob: `${paths.htdocs}${cssPlugins}`
 }
+
+// html folder
 const htmlPaths = {
   base: `${paths.src}/pug`,
   src: `${paths.src}/pug/**/*.pug`
 }
+
+// icons folder
 const iconsFolder = '/fonts/icons'
 const iconsAssets = `${assets}${iconsFolder}`
 const iconsPaths = {
   src: `${paths.src}/icons/*.svg`,
   srcGlob: `${paths.src}/src/icons`,
   dest: `${paths.dest}${iconsAssets}`,
+  htdest: `${paths.htdocs}${iconsAssets}`,
   templates: `${paths.src}/templates`
 }
+
+// image folder
 const imagesAssets = `${assets}/img`
 const imagesPaths = {
   src: `${paths.src}/img/**/*.{gif,jpg,png,svg}`,
-  dest: `${paths.dest}${imagesAssets}`
+  dest: `${paths.dest}${imagesAssets}`,
+  htdest: `${paths.dest}${imagesAssets}`
 }
-const cleanFolder = [`${paths.ast}/**/*`, `${paths.src}/src/**/*`]
+
+// clean folder
+const cleanFolder = [
+  `${paths.dest}${assets}`,
+  `${paths.htdocs}/**/*`,
+  `${paths.src}/src/**/*`
+]
 
 /**
  * copy settings
@@ -168,11 +188,12 @@ export const scripts = () =>
     .pipe(dest(jsPaths.srcGlob))
     .pipe($.if(env === 'DEV', $.sourcemaps.write()))
     .pipe($.sourcemaps.write())
+    .pipe(dest(jsPaths.destGlob))
     .pipe(
       $.if(
         env !== 'DEV',
         dest(`${buildPath}${jsAssets}`),
-        dest(jsPaths.destGlob)
+        dest(jsPaths.htdestGlob)
       )
     )
     .pipe(browserSync.stream())
@@ -211,11 +232,12 @@ export const styles = () => {
     .pipe(dest(cssPaths.srcGlob))
     .pipe($.if(env === 'DEV', $.sourcemaps.write()))
     .pipe($.cssnano())
+    .pipe(dest(cssPaths.destGlob))
     .pipe(
       $.if(
         env !== 'DEV',
         dest(`${buildPath}${cssAssets}`),
-        dest(cssPaths.destGlob)
+        dest(cssPaths.htdestGlob)
       )
     )
     .pipe(browserSync.stream())
@@ -266,7 +288,7 @@ export const html = () =>
     // .pipe($.if(env !== 'DEV', $.replace('<!-- gtm-->', gtm)))
     // .pipe($.if(env !== 'DEV', $.replace('<!-- ytm-->', ytm)))
     .pipe($.if(env !== 'DEV', $.replace('__NOCACHE__', Date.now())))
-    .pipe($.if(env !== 'DEV', dest(`${buildPath}`), dest(paths.dest)))
+    .pipe($.if(env !== 'DEV', dest(`${buildPath}`), dest(paths.htdocs)))
     .pipe(browserSync.stream())
 
 const uglifyOptions = {
@@ -293,7 +315,7 @@ export const jsMinify = () =>
       $.if(
         env !== 'DEV',
         dest(`${buildPath}${jsAssets}`),
-        dest(jsPaths.destGlob)
+        dest(jsPaths.htdestGlob)
       )
     )
 
@@ -308,7 +330,7 @@ export const cssMinify = () =>
       $.if(
         env !== 'DEV',
         dest(`${buildPath}${cssAssets}`),
-        dest(cssPaths.destGlob)
+        dest(cssPaths.htdestGlob)
       )
     )
 
@@ -339,7 +361,7 @@ export const imageMinify = () => {
       $.if(
         env !== 'DEV',
         dest(`${buildPath}${imagesAssets}`),
-        dest(imagesPaths.dest)
+        dest(imagesPaths.htdest)
       )
     )
 }
@@ -348,13 +370,15 @@ export const imageMinify = () => {
  * copy
  */
 export const staticCopy = () =>
-  src(staticSrc).pipe(
-    $.if(
-      env !== 'DEV',
-      dest(`${buildPath}${assets}`),
-      dest(`${paths.dest}${assets}`)
+  src(staticSrc)
+    .pipe(dest(`${paths.dest}${assets}`))
+    .pipe(
+      $.if(
+        env !== 'DEV',
+        dest(`${buildPath}${assets}`),
+        dest(`${paths.htdocs}${assets}`)
+      )
     )
-  )
 
 /**
  * dev cpy

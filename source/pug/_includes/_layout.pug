@@ -1,0 +1,38 @@
+//- _layout.pug
+include /_includes/_config.pug
+
+block php
+
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width,initial-scale=1')
+    meta(name='format-detection' content='telephone=no')
+    meta(name='theme-color' content=`${themeColor}`)
+    link(rel='shortcut icon', href=favicon)
+
+    block head_meta
+
+    block css
+      //- plugins style
+
+      //- page stylesheets
+      link(rel='stylesheet' href=`${cssPath}/styles.min.css?__NOCACHE__`)
+
+    block head_script
+      //- plugins
+      script(src=`${pluginsPath}/jquery.min.js?ver=3.4.1`)
+      //- page polyfill
+      script(src=`${jsPath}/polyfill.min.js?__NOCACHE__`)
+
+  body
+
+    block content
+
+    .site-overlay#siteOverlay
+
+    //- page scripts
+    block script
+      script(src=`${jsPath}/script.min.js?__NOCACHE__`)
