@@ -1,0 +1,54 @@
+/*
+  head.scss
+-------------------------------------------------- */
+
+//
+// ttl
+//
+
+// h3
+.ttl--border-vertical {
+  position: relative;
+  padding-left: 50px;
+  padding-bottom: 36px;
+  font-weight: $bold;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: $font-color;
+    top: 0;
+    left: 0;
+  }
+
+  span {
+    display: block;
+
+    &.en {
+      font-size: 8rem;
+      padding-bottom: .15em;
+    }
+
+    &.ja {
+      color: $gray-500;
+      font-size: 2.1rem;
+    }
+  }
+}
+
+.ttl--has-en {
+  font-weight: $bold;
+
+  span {
+    display: block;
+
+    &.en {
+      font-size: 6rem;
+      line-height: 1.2;
+    }
+
+    &.ja {}
+  }
+}

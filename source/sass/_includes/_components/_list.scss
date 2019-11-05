@@ -1,0 +1,46 @@
+/*
+  list.scss
+-------------------------------------------------- */
+
+//
+// works-list
+//
+.works-link__list {
+  @include negativeMR(-8px);
+  @include innerPD(8px);
+
+  .works-link__item {
+    @include innerPD(8px);
+  }
+}
+
+.works-link {
+  display: block;
+  $and: &;
+
+  a {
+    &:hover {}
+  }
+
+  &__thumbnail {
+    border: solid 1px $gray-500;
+    margin-bottom: 1.2rem;
+
+    img {
+      transition: .3s all;
+    }
+  }
+
+  &__info {
+    line-height: 1.5;
+
+    .info-company {
+      font-size: 1.2rem;
+    }
+
+    .info-ttl {
+      font-weight: $bold;
+      font-size: 1.6rem;
+    }
+  }
+}

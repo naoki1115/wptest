@@ -30,8 +30,14 @@ body {
   @include font-smooth;
   font-family: $sans;
   color: $font-color;
-  line-height: 1/75;
+  font-size: $fz-base;
+  line-height: 1.75;
   position: relative;
+  min-width: 1000px;
+
+  @include mq(sm) {
+    min-width: 100%;
+  }
 }
 
 figcaption {
@@ -44,6 +50,7 @@ iframe {
 
 a {
   transition: 0.3s all;
+  color: $font-color;
 
   @include mq(ipad) {
     &:hover {
@@ -63,32 +70,57 @@ sup {
   }
 }
 
+h1,
+h2 {
+  font-size: 3rem;
+}
+
+h3,
+h4 {
+  font-size: 2.4rem;
+}
+
+h5 {
+  font-size: 2rem;
+}
+
+h6 {
+  font-size: 1.8rem;
+}
+
 //
 // contaier
 //
 .content-inner {
   width: 100%;
-  max-width: $base-width;
+  max-width: calc(#{$base-width} + 40px);
   @include innerPD;
-  @include centerMR;
+  // @include centerMR;
+  margin: 0 calc(#{$separate} - 20px);
 
   @include mq(md) {
     @include innerPD(15px);
   }
 
-  &.--l {
+  &.-l {
     width: 100%;
     max-width: $large-width;
   }
 
-  &.--m {
-    width: 100%;
-    max-width: $medium-width;
-  }
-
-  &.--s {
+  &.-s {
     width: 100%;
     max-width: $small-width;
+  }
+
+  &--m {
+    width: 100%;
+    max-width: calc(#{$medium-width} + 40px);
+    @include innerPD;
+    margin: 0 calc(#{$separate} * 2 - 20px);
+
+    @include mq(md) {
+      @include innerPD(15px);
+    }
   }
 }
 
@@ -125,7 +157,48 @@ sup {
     top: 0;
     height: 100%;
     width: 1px;
+    background: $gray-200;
+    z-index: -1;
+
+    &.-line--01 {
+      left: 16.666%;
+    }
+
+    &.-line--02 {
+      left: 33.332%;
+    }
+
+    &.-line--03 {
+      left: 49.998%;
+    }
+
+    &.-line--04 {
+      left: 66.664%;
+    }
+
+    &.-line--05 {
+      left: 83.33%;
+    }
   }
+}
+
+main {
+  display: block;
+  padding-top: 11rem;
+}
+
+section {
+  +section {
+    margin-top: 12rem;
+
+    @include mq(sm) {
+      margin-top: 8rem;
+    }
+  }
+}
+
+.bg {
+  background: $gray-bg;
 }
 
 //

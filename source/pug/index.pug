@@ -12,26 +12,112 @@ block prepend head_script
 
 block content
   - var imgSrc = `${imgPath}/index`
+  - var imgWorksSrc = `${imgPath}/works`
 
-    header.header#siteHeader
-      include /_includes/_header
+  -
+    var worksList = [
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      }
+    ]
 
-    main.page-index
-      .mv__wrapper
-        .mv__inner
-          .mv__image
-            picture
-              source(media=`${mqSm}` srcset=`${imgSrc}/mv_sp.jpg`)
-              img(src=`${imgSrc}/mv_pc.jpg`).object-fit-img
-          .mv__ttl
-            h2 !{ttl}
+  header.header#siteHeader
+    include /_includes/_header
 
-      article.content__wrapper
+  main.page-index
+    .mv__wrapper
+      .mv__inner
+        .mv
+          h2.mv__ttl Hello World.
+          p.mv__lead Thank you for visiting my website :)<br>I’m NAOKI working as a WEB Creator.<br class='hidden-xs-down'>I like creating website and interesting thing.
+
+      .mv__scroll-sign
+        span.t-italic SCROLL
+
+    article.content-wrapper
+      section.home-about
+        h3.ttl--border-vertical
+          span.en ABOUT
+          span.ja わたしについて
+
+        .content-inner
+
+      section.home-works
+        h3.ttl--border-vertical
+          span.en WORKS
+          span.ja 制作実績
+
+        .content-inner
+          p.section-lead-txt.t-center-up 非掲載実績をご希望の方は、別途ご対応させていただきます。<br>お問い合わせ、または各種SNSツールよりご連絡いただきますようお願いいたします。
+
+          .home-works-link__wrapper
+            ul.works-link__list.row
+              each val in worksList
+                li.works-link__item.col-sm-3.col-12
+                  a.works-link(href='/works/detail/')
+                    .works-link__thumbnail
+                      img(src=`${imgWorksSrc}/${val.img}`)
+                    .works-link__info
+                      span.info-company !{val.company}
+                      h4.info-ttl !{val.ttl}
+
+            .btn-container
+              a(href='/works/archive') view more
+
+      section.home-contact.bg
+        h3.ttl--has-en.t-center
+          span.en CONTACT
+          span.ja お問い合わせ
+        .content-inner--m
+          .contact-link
+            p.contact-link__lead.t-center.t-ib-row
+              span 当サイトに関する
+              span ご意見・ご感想
+              |<br>その他、お問い合わせなど<br>お気軽にご連絡ください！
+            .contact-link__button.button-container
+              a(href='/contact/')
 
 
-    //- footer
-    .footer-wrapper#footerWrapper
-      include /_includes/_footer
+  //- footer
+  .footer-wrapper#footerWrapper
+    include /_includes/_footer
 
 block append script
 //- JSを最後に追加する場合は block append script

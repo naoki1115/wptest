@@ -53,7 +53,7 @@ $gray-500: #a0a0a0;
 //
 
 // font size
-$fz-base: 1.4rem !default;
+$fz-base: 1.6rem !default;
 
 // font weight
 $bold: bold;
@@ -63,11 +63,13 @@ $lighter: 300;
 $light: light;
 
 // font family
-$sans: 'myoriginal gothic',
-'Hiragino Sans',
-'Hiragino Kaku Gothic ProN',
-'Yu Gothic',
-Meiryo,
+$sans:"游ゴシック体",
+YuGothic,
+"游ゴシック Medium",
+"Yu Gothic Medium",
+"游ゴシック",
+"Yu Gothic",
+"メイリオ",
 sans-serif !default;
 
 $serif: 'suminoe jp serif',
@@ -90,9 +92,11 @@ $icons: 'myoriginal-icon' !default;
 //
 
 // container
-$base-width: 1040px !default;
+$separate: 16.666%;
+
+$base-width: calc(#{$separate} * 4) !default;
 $large-width: 1240px !default;
-$medium-width: 840px !default;
+$medium-width: calc(#{$separate} * 2) !default;
 $small-width: 640px !default;
 
 // header

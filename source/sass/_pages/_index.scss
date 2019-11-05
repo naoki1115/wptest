@@ -1,0 +1,74 @@
+/*
+  index.scss
+-------------------------------------------------- */
+.mv__wrapper {
+  height: calc(100vh - 11rem);
+  position: relative;
+
+  .mv__inner {
+    @include flexCenter;
+    height: 100%;
+  }
+}
+
+.mv {
+  text-align: center;
+
+  &__ttl {
+    font-size: 7.2rem;
+    margin-bottom: 5rem;
+    font-weight: $bold;
+  }
+
+  &__lead {
+    font-size: 1.8rem;
+    line-height: 2.2;
+  }
+
+  &__scroll-sign {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+
+    span {
+      font-size: 1.1rem;
+      font-weight: $bold;
+    }
+  }
+}
+
+//
+// works
+//
+.home-works-link__wrapper {
+  .works-link__item {
+    &:nth-child(n+5) {
+      @include mq(sm-min) {
+        margin-top: 4rem;
+      }
+    }
+  }
+}
+
+//
+// contact
+//
+.home-contact {
+  padding: 10rem 0 12rem;
+
+  h3 {
+    margin-bottom: 3.6rem;
+  }
+
+  .contact-link {
+    border: solid 10px $font-color;
+    background: #fff;
+    padding: 60px 20px;
+
+    &__lead {
+      font-size: 1.8rem;
+      font-weight: $bold;
+    }
+  }
+}

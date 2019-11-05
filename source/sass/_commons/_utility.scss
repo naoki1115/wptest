@@ -5,6 +5,10 @@
 //
 // text
 //
+.t-italic {
+  font-style: italic !important;
+}
+
 .t-tel-link {
   &:hover {
     text-decoration: none;
@@ -27,18 +31,16 @@
   text-align: center !important;
 }
 
-.t-center-md-up {
-  @include mq(md-min) {
+.t-center-up {
+  @include mq(sm-min) {
     text-align: center !important
   }
-
-  text-align: left;
 }
 
-.t-center-md-down {
+.t-center-down {
   text-align: left;
 
-  @include mq(md) {
+  @include mq(sm) {
     text-align: center !important;
   }
 }
