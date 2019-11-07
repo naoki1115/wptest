@@ -28,7 +28,7 @@
 
     &.en {
       font-size: 8rem;
-      padding-bottom: .15em;
+      padding-bottom: 0.15em;
     }
 
     &.ja {
@@ -49,6 +49,123 @@
       line-height: 1.2;
     }
 
-    &.ja {}
+    &.ja {
+    }
+  }
+}
+
+// h4
+.ttl--line-side {
+  font-weight: $bold;
+  margin-bottom: 5rem;
+
+  @include mq(sm) {
+    margin-bottom: 3rem;
+  }
+
+  span {
+    @include mq(sm) {
+      display: block;
+    }
+
+    &.ttl-row {
+      padding-left: 2.2em;
+      position: relative;
+
+      @include mq(sm-min) {
+        @include dflex;
+        align-items: center;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto 0;
+        width: 1.5em;
+        height: 2px;
+        background: $primary;
+      }
+    }
+
+    &.en {
+      font-size: 4.6rem;
+      line-height: 1;
+    }
+
+    &.ja {
+      font-size: 1.6rem;
+      color: $gray-500;
+      padding-left: 1.3em;
+    }
+  }
+}
+
+// h5
+.ttl--border {
+  font-size: 2rem;
+  border-left: solid 8px $primary;
+  line-height: 1.4;
+  padding-left: 0.5em;
+  margin-bottom: 2.4rem;
+}
+
+//
+// head
+//
+.page-ttl-head {
+  height: 30rem;
+  margin-bottom: 9rem;
+  position: relative;
+  @include flexCenter;
+
+  // gray
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: calc(100% - #{$separate});
+    background: $gray-bg;
+  }
+
+  // black
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 90px;
+    height: 100%;
+    width: calc(100% - #{$separate} * 2);
+    background: $primary;
+    z-index: -10;
+  }
+
+  h3 {
+    text-align: center;
+    font-weight: $bold;
+    position: relative;
+    z-index: 10;
+    line-height: 1.5;
+
+    span {
+      display: block;
+
+      &.en {
+        font-size: 6rem;
+
+        @include mq(sm) {
+          font-size: 4rem;
+        }
+      }
+
+      &.jp {
+        font-size: 1.8rem;
+        color: $gray-500;
+      }
+    }
   }
 }

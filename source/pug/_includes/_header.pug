@@ -23,27 +23,31 @@
   ]
 
 .header__inner
-  .header__info__wrap
-    .header__info__bar
-      h1.header__logo
-        a(href='/')
-          img(src=`${imgPathCommon}/logo_primary.png` alt='株式会社 髙廣製本')
+  .header-info
+    .header-info__bar
+      h1.header-info__logo
+        a(href='/') COMPANY NAME
 
-      .header__nav__trigger.hidden-sm-up
-        button.header-trigger#spNavTrigger
+      .header-info__nav-trigger.hidden-sm-up
+        button.nav-trigger#spNavTrigger
           span
           span
           span
 
-  .header__nav
-    nav
-      ul.header__nav__list.nav-primary#headerNavPrimary
-        each val in headerLink
-          li
-            a.btn-white-primary(href=val.page) !{val.txt}
-            if val.child
-              ul.nav-secondary
-                each c in val.child
-                  li
-                    a.btn-white-primary(href=c.page) !{c.txt}
+    .header-info__nav__wrapper
+      nav.header-info__nav
+        ul.header-info__nav__list
+          each val in headerLink
+            li
+              if val.blank
+                a(href=`${val.page}` target='_blank')
+                  span !{val.txt}
+              else if val.class
+                a.btn-primary(href=`${val.page}`)
+                  span !{val.txt}
+              else
+                a(href=`${val.page}`)
+                  span !{val.txt}
+
+
 

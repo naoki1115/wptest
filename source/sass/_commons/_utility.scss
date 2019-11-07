@@ -3,12 +3,23 @@
 -------------------------------------------------- */
 
 //
-// text
+// font
 //
+.t-cursive {
+  font-family: $cursive;
+}
+
+.t-serif {
+  font-family: $serif;
+}
+
 .t-italic {
   font-style: italic !important;
 }
 
+//
+// text
+//
 .t-tel-link {
   &:hover {
     text-decoration: none;
@@ -33,7 +44,11 @@
 
 .t-center-up {
   @include mq(sm-min) {
-    text-align: center !important
+    text-align: center !important;
+  }
+
+  @include mq(sm) {
+    text-align: left !important;
   }
 }
 
@@ -46,7 +61,7 @@
 }
 
 .t-ib-row {
-  >span {
+  > span {
     display: inline-block;
   }
 }
@@ -80,4 +95,11 @@
       text-decoration: none;
     }
   }
+}
+
+//
+// row
+//
+.ib-row {
+  display: inline-block;
 }

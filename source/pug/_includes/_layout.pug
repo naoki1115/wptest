@@ -16,7 +16,9 @@ html(lang='ja')
     block head_meta
 
     block css
-      //- plugins style
+      //- fonts style
+      - for(i = 0; i < googleFonts.length; i++)
+        link(rel='stylesheet' href=`https://fonts.googleapis.com/css?family=${googleFonts[i]}&display=swap`)
 
       //- page stylesheets
       link(rel='stylesheet' href=`${cssPath}/styles.min.css?__NOCACHE__`)
@@ -41,4 +43,4 @@ html(lang='ja')
 
     //- page scripts
     block script
-      script(src=`${jsPath}/script.min.js?__NOCACHE__`)
+      script(src=`${jsPath}/scripts.min.js?__NOCACHE__`)

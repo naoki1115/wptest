@@ -1,0 +1,150 @@
+extends /_includes/_layout.pug
+
+block head_meta
+  title #{baseTitle}
+  meta(name='description' content=baseDescription)
+
+block prepend css
+//- CSSを最後に追加する場合は block append css
+//- CSSをパスを変更する場合は block css
+
+block prepend head_script
+
+block content
+  - var imgSrc = `${imgPath}/about`
+
+  -
+    var skills = [
+      {
+        n: '01',
+        img: 'skills_design.jpg',
+        ttl: 'Web Design',
+        txt: '見た目と機能性を兼ね備え、ユーザー目線を忘れず使いやすいWebデザインをご提案します。'
+      },
+      {
+        n: '02',
+        img: 'skills_cording.jpg',
+        ttl: 'Cording',
+        txt: 'HTML、CSS、jQueryなどを使い、育てやすいサイトを作ることを意識してコーディングします。'
+      }
+    ]
+
+  header.header#siteHeader
+    include /_includes/_header
+
+  main.page-child.page-about
+    .page-ttl-head
+      h3
+        span.en ABOUT
+        span.jp わたしについて
+
+    article.content-wrapper
+      .content-inner
+        section.about__profile
+          h4.ttl--line-side
+            span.ttl-row
+              span.en PROFILE
+              span.ja 自己紹介
+
+          .profile__content.row
+            .col-sm-6.col-12
+              .profile__txt__container
+                .profile__txt.bg-container
+                  p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+                  p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+                  p この文章はダミーです。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+
+            .col-sm-3.col-12
+              .profile__figure.shadow-bg-container
+                img(src=`${imgSrc}/profile_face.jpg`)
+
+            .profile__name.hidden-xs-down
+              span.t-cursive Naoki Yoshikawa
+
+
+        section.about__skills
+          h4.ttl--line-side
+            span.ttl-row
+              span.en SKILLS
+              span.ja できること
+
+          .skills__content
+            h5.ttl--border できること
+            .skills__ability
+              ul.skills__ability__list.row
+                each val in skills
+                  li.col-sm-6.col-12.row
+                    .skills__ability__figure.col-sm-6.col-12
+                      figure
+                        img(src=`${imgSrc}/${val.img}`)
+                      span.ability-number.t-serif.t-italic !{val.n}
+
+                    .skills__ability__info.col-sm-6.col-12
+                      .info-inner
+                        h5 !{val.ttl}
+                        p !{val.txt}
+
+            .skills__strength.bg-container
+              p わたしの強みは、デザインとコーディングの兼任ができることです。
+              p コーダーがデザインもきっちり出来るようになると凄い強いんですよ。デザインがわかってる上に、コーディング上で「あ。これ難しいよね」とか「難しそうに見えるけどこれはシンプルに書けるし見た目もいいから最高だね」とか。フリーランスの場合は提案力の強化に繋がります。
+              p HTMLやCSSを書く、所謂コーダーの人はデザインを一から作るのが苦手な人が結構いると思います。まぁ私もデザインとかクソ苦手なんですけど、私のデザインがハマる人も一応いらっしゃるようで有り難いですね。
+
+          .skills__content
+            h5.ttl--border 使用ツール
+            ul.skills__tool.row.-inline
+              li
+                img(src=`${imgSrc}/logo_xd.png`)
+              li
+                img(src=`${imgSrc}/logo_ps.png`)
+              li
+                img(src=`${imgSrc}/logo_ai.png`)
+              li
+                img(src=`${imgSrc}/logo_vsc.png`)
+              li
+                img(src=`${imgSrc}/logo_git.png`)
+              li
+                img(src=`${imgSrc}/logo_npm.png`)
+              li
+                img(src=`${imgSrc}/logo_gulp.png`)
+              li
+                img(src=`${imgSrc}/logo_wp.png`)
+
+        section.about__career
+          h4.ttl--line-side
+            span.ttl-row
+              span.en CAREER
+              span.ja 経歴
+
+          .career__content
+            ul.career__list
+              li.career__item
+                dl.career-content.row
+                  dt.career-content__year.t-serif
+                    span 1993
+                  dd.career-content__info
+                    .info-line
+                      span.info-icon.icon-circle-double
+                    .info-content
+                      h6 生誕
+                      p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+
+              li.career__item
+                dl.career-content.row
+                  dt.career-content__year.t-serif
+                    span 2012
+                  dd.career-content__info
+                    .info-line
+                      span.info-icon.icon-circle-double
+                    .info-content
+                      h6 京都外国大学 入学
+                      p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+
+
+  //- footer
+  .footer-wrapper#footerWrapper
+    include /_includes/_footer
+
+block append script
+//- JSを最後に追加する場合は block append script
+//- JSのパスを変更する場合は block script
+

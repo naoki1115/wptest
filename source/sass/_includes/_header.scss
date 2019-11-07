@@ -2,10 +2,180 @@
   header.scss
 -------------------------------------------------- */
 .header {
-  height: 11rem;
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
+  z-index: 999;
   background: #fff;
+}
+
+.header-info {
+  $this: &;
+  position: relative;
+
+  @include mq(sm-min) {
+    @include dflex;
+    justify-content: space-between;
+    align-items: center;
+    height: 11rem;
+  }
+
+  &__bar {
+    @include mq(sm) {
+      @include dflex;
+      position: relative;
+      align-items: center;
+      height: 6rem;
+    }
+
+    #{$this}__logo {
+      padding-left: 40px;
+      font-size: 2.8rem;
+
+      @include mq(sm) {
+        padding-left: 15px;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__nav-trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6rem;
+    height: 6rem;
+
+    .nav-trigger {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      span {
+        background: $primary;
+        width: 32px;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        transition: 0.3s all;
+
+        &:first-child {
+          top: 16px;
+
+          .nav-open & {
+            transform: rotate(-225deg);
+            top: 29px;
+          }
+        }
+
+        &:nth-child(2) {
+          top: 0;
+          bottom: 0;
+          margin: auto;
+
+          .nav-open & {
+            opacity: 0;
+          }
+        }
+
+        &:last-child {
+          bottom: 16px;
+
+          .nav-open & {
+            transform: rotate(225deg);
+            bottom: 29px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.header-info__nav__wrapper {
+  @include mq(sm) {
+    position: fixed;
+    left: -100%;
+    top: 6rem;
+    background: $gray-bg;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s all;
+  }
+
+  // js
+  .nav-open & {
+    left: 0;
+  }
+}
+
+.header-info__nav {
+  &__list {
+    @include mq(sm-min) {
+      @include dflex;
+    }
+
+    li {
+      @include mq(sm) {
+        padding-left: 30px;
+      }
+
+      + li {
+        @include mq(sm-min) {
+          margin-left: 50px;
+        }
+      }
+
+      a {
+        font-weight: $bold;
+        position: relative;
+
+        @include mq(sm) {
+          height: 6rem;
+          display: block;
+          @include dflex;
+          align-items: center;
+        }
+
+        &:before {
+          @include mq(sm) {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            width: calc(100% - 30px);
+            height: 1px;
+            background: $gray-200;
+          }
+        }
+
+        &:after {
+          @include mq(sm) {
+            content: '';
+            position: absolute;
+            right: 15px;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            height: 1px;
+            width: 30px;
+            background: $primary;
+          }
+        }
+
+        span {
+          @include mq(sm) {
+            padding-right: 1.5em;
+            background: $gray-bg;
+            position: relative;
+            z-index: 10;
+          }
+        }
+      }
+    }
+  }
 }

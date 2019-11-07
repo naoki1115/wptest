@@ -33,7 +33,7 @@ body {
   font-size: $fz-base;
   line-height: 1.75;
   position: relative;
-  min-width: 1000px;
+  min-width: 1040px;
 
   @include mq(sm) {
     min-width: 100%;
@@ -149,6 +149,16 @@ h6 {
   }
 }
 
+.page-child {
+  .content-wrapper {
+    padding-top: 10rem;
+
+    @include mq(sm) {
+      padding-top: 7rem;
+    }
+  }
+}
+
 .site-wrapper {
   position: relative;
 
@@ -162,6 +172,10 @@ h6 {
 
     &.-line--01 {
       left: 16.666%;
+
+      @include mq(pc) {
+        display: none;
+      }
     }
 
     &.-line--02 {
@@ -170,6 +184,10 @@ h6 {
 
     &.-line--03 {
       left: 49.998%;
+
+      @include mq(pc) {
+        display: none;
+      }
     }
 
     &.-line--04 {
@@ -178,6 +196,10 @@ h6 {
 
     &.-line--05 {
       left: 83.33%;
+
+      @include mq(pc) {
+        display: none;
+      }
     }
   }
 }
@@ -185,10 +207,14 @@ h6 {
 main {
   display: block;
   padding-top: 11rem;
+
+  @include mq(sm) {
+    padding-top: 6rem;
+  }
 }
 
 section {
-  +section {
+  + section {
     margin-top: 12rem;
 
     @include mq(sm) {
@@ -197,8 +223,50 @@ section {
   }
 }
 
+//
+// background
+//
 .bg {
   background: $gray-bg;
+
+  &-container {
+    background: $gray-bg;
+
+    @include mq(sm) {
+      padding: 40px 24px;
+    }
+
+    p {
+      + p {
+        margin-top: 1.8em;
+      }
+    }
+  }
+}
+
+.shadow-bg-container {
+  position: relative;
+}
+
+//
+// bootstrap
+//
+/* ※content-innerを基準にして、padding・marginはリセットする。レイアウトが崩れるのでベースに使わないこと。*/
+.row {
+  margin-left: 0;
+  margin-right: 0;
+  justify-content: space-between;
+
+  &.-inline {
+    justify-content: flex-start;
+  }
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 //

@@ -40,7 +40,7 @@ $danger: $red !default;
 $font-color: #333 !default;
 $gray-bg: #f7f7f7;
 
-$primry: $font-color;
+$primary: $font-color;
 $secondary: $orange;
 
 $gray-200: #eaeaea;
@@ -72,18 +72,10 @@ YuGothic,
 "メイリオ",
 sans-serif !default;
 
-$serif: 'suminoe jp serif',
-游明朝,
-"Yu Mincho",
-YuMincho,
-"Hiragino Mincho ProN",
-"Hiragino Mincho Pro",
-HGS明朝E,
-メイリオ,
-Meiryo,
-serif !default;
+$serif: 'Merriweather', serif !default;
+$cursive: 'Sacramento', cursive !default;
 
-$icons: 'myoriginal-icon' !default;
+$icons: 'original-icon' !default;
 
 //
 // 03.
