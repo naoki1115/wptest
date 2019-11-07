@@ -34,14 +34,14 @@ block content
 
   main.page-child.page-about
     .page-ttl-head
-      h3
+      h2
         span.en ABOUT
         span.jp わたしについて
 
     article.content-wrapper
       .content-inner
         section.about__profile
-          h4.ttl--line-side
+          h3.ttl--line-side
             span.ttl-row
               span.en PROFILE
               span.ja 自己紹介
@@ -63,13 +63,13 @@ block content
 
 
         section.about__skills
-          h4.ttl--line-side
+          h3.ttl--line-side
             span.ttl-row
               span.en SKILLS
               span.ja できること
 
           .skills__content
-            h5.ttl--border できること
+            h4.ttl--border できること
             .skills__ability
               ul.skills__ability__list.row
                 each val in skills
@@ -90,7 +90,7 @@ block content
               p HTMLやCSSを書く、所謂コーダーの人はデザインを一から作るのが苦手な人が結構いると思います。まぁ私もデザインとかクソ苦手なんですけど、私のデザインがハマる人も一応いらっしゃるようで有り難いですね。
 
           .skills__content
-            h5.ttl--border 使用ツール
+            h4.ttl--border 使用ツール
             ul.skills__tool.row.-inline
               li
                 img(src=`${imgSrc}/logo_xd.png`)
@@ -110,7 +110,7 @@ block content
                 img(src=`${imgSrc}/logo_wp.png`)
 
         section.about__career
-          h4.ttl--line-side
+          h3.ttl--line-side
             span.ttl-row
               span.en CAREER
               span.ja 経歴
@@ -120,23 +120,47 @@ block content
               li.career__item
                 dl.career-content.row
                   dt.career-content__year.t-serif
-                    span 1993
+                    span.year 1993
                   dd.career-content__info
                     .info-line
                       span.info-icon.icon-circle-double
                     .info-content
-                      h6 生誕
+                      h6 タイトルが入ります
                       p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
 
               li.career__item
                 dl.career-content.row
                   dt.career-content__year.t-serif
-                    span 2012
+                    span.year 2012
                   dd.career-content__info
                     .info-line
                       span.info-icon.icon-circle-double
                     .info-content
-                      h6 京都外国大学 入学
+                      h6 タイトルが入りますタイトルが入ります
+                      p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+
+              li.career__item
+                dl.career-content.row
+                  dt.career-content__year.t-serif
+                    span.year 2016
+                    span.new NEW
+                  dd.career-content__info
+                    .info-line
+                      span.info-icon.icon-circle-double
+                    .info-content
+                      h6 タイトルが入ります
+                      p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+
+              li.career__item.-new
+                dl.career-content.row
+                  dt.career-content__year.t-serif
+                    span.year 2016
+                    span.new NEW
+                  dd.career-content__info
+                    .info-line
+                      span.info-icon.icon-circle-double
+                    .info-content
+                      h6 タイトル<br>ここは複数行のタイトル
                       p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
 
 

@@ -84,11 +84,11 @@ $icons: 'original-icon' !default;
 //
 
 // container
-$separate: 16.666%;
+$separate: 10%;
 
-$base-width: calc(#{$separate} * 4) !default;
+$base-width: calc(#{$separate} * 8) !default;
 $large-width: 1240px !default;
-$medium-width: calc(#{$separate} * 2) !default;
+$medium-width: calc(#{$separate} * 4) !default;
 $small-width: 640px !default;
 
 // header

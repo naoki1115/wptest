@@ -19,7 +19,8 @@
   $and: &;
 
   a {
-    &:hover {}
+    &:hover {
+    }
   }
 
   &__thumbnail {
@@ -27,7 +28,7 @@
     margin-bottom: 1.2rem;
 
     img {
-      transition: .3s all;
+      transition: 0.3s all;
     }
   }
 
@@ -41,6 +42,19 @@
     .info-ttl {
       font-weight: $bold;
       font-size: 1.6rem;
+    }
+  }
+}
+
+//
+// list style
+//
+.list--slash {
+  li {
+    &:not(:last-child) {
+      &:after {
+        content: '／';
+      }
     }
   }
 }

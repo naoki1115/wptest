@@ -1,0 +1,141 @@
+/*
+  works.scss
+-------------------------------------------------- */
+
+/*
+  works - common
+-------------------------------------------------- */
+//
+// nav
+//
+.works__category-nav__wrapper {
+}
+
+.works__category-nav {
+  &__item {
+    + li {
+      margin-top: 1.4rem;
+    }
+
+    a {
+      padding-left: 1em;
+      position: relative;
+      transition: 0.3s all;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: calc(0.5em - 2px);
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        width: 3px;
+        height: 3px;
+        background: $primary;
+        border-radius: 50%;
+        transition: 0.3s all;
+      }
+
+      &:after {
+        @include mq(ipad-min) {
+          content: '';
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          border-top: solid 2px $primary;
+          border-right: solid 2px $primary;
+          transform: rotate(45deg);
+          transition: 0.3s all;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          opacity: 0;
+          margin: auto 0;
+          visibility: hidden;
+        }
+      }
+
+      &:hover {
+        @include mq(ipad-min) {
+          padding-left: 2em;
+
+          &:before {
+            width: 1em;
+            height: 2px;
+            border-radius: 0;
+          }
+
+          &:after {
+            opacity: 1;
+            visibility: visible;
+            left: 0.95em;
+          }
+
+          .category {
+            font-weight: $bold;
+          }
+        }
+      }
+
+      span {
+        &.category {
+          transition: 0.3s all;
+        }
+      }
+    }
+  }
+}
+
+/*
+  works - archive
+-------------------------------------------------- */
+
+/*
+  works - detail
+-------------------------------------------------- */
+.works-detail__info__content {
+  margin-bottom: 6rem;
+
+  dl {
+    @include mq(sm-min) {
+      @include dflex;
+    }
+
+    + dl {
+      margin-top: 5rem;
+    }
+
+    dt {
+      padding-right: 16px;
+      font-weight: $bold;
+    }
+
+    dd {
+      &:not(:last-of-type) {
+        margin-bottom: 2.4rem;
+      }
+    }
+  }
+}
+
+.works-detail__design {
+  $this: &;
+
+  + #{$this} {
+    margin-top: 8rem;
+  }
+
+  &__visual {
+    li {
+      img {
+        border: solid 1px $gray-500;
+      }
+    }
+  }
+}
+
+.works-detail__related-link {
+  padding-top: 4rem;
+  margin-top: 8rem;
+  border-top: solid 1px $primary;
+}

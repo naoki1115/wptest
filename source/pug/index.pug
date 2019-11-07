@@ -73,14 +73,14 @@ block content
 
     article.content-wrapper
       section.home-about
-        h3.ttl--border-vertical
+        h2.ttl--border-vertical
           span.en ABOUT
           span.ja わたしについて
 
         .content-inner
 
       section.home-works
-        h3.ttl--border-vertical
+        h2.ttl--border-vertical
           span.en WORKS
           span.ja 制作実績
 
@@ -88,7 +88,7 @@ block content
           p.section-lead-txt.t-center-up 非掲載実績をご希望の方は、別途ご対応させていただきます。<br>お問い合わせ、または各種SNSツールよりご連絡いただきますようお願いいたします。
 
           .home-works-link__wrapper
-            ul.works-link__list.row
+            ul.works-link__list.row.-inline
               each val in worksList
                 li.works-link__item.col-sm-3.col-12
                   a.works-link(href='/works/detail/')
@@ -102,7 +102,7 @@ block content
               a(href='/works/archive') view more
 
       section.home-contact.bg
-        h3.ttl--has-en.t-center
+        h2.ttl--has-en.t-center
           span.en CONTACT
           span.ja お問い合わせ
         .content-inner--m

@@ -53,8 +53,8 @@
 
 @font-face {
   font-family: 'original-icon';
-  src: url("../fonts/icons/original-icon.eot?1573104619");
-  src: url("../fonts/icons/original-icon.eot?1573104619#iefix") format("eot"), url("../fonts/icons/original-icon.woff2?1573104619") format("woff2"), url("../fonts/icons/original-icon.woff?1573104619") format("woff"), url("../fonts/icons/original-icon.ttf?1573104619") format("truetype"), url("../fonts/icons/original-icon.svg?1573104619#original-icon") format("svg");
+  src: url("../fonts/icons/original-icon.eot?1573113287");
+  src: url("../fonts/icons/original-icon.eot?1573113287#iefix") format("eot"), url("../fonts/icons/original-icon.woff2?1573113287") format("woff2"), url("../fonts/icons/original-icon.woff?1573113287") format("woff"), url("../fonts/icons/original-icon.ttf?1573113287") format("truetype"), url("../fonts/icons/original-icon.svg?1573113287#original-icon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -75,6 +75,10 @@
 
 .icon-circle-double:before {
   content: '\f001';
+}
+
+.icon-new-window:before {
+  content: '\f002';
 }
 
 /*
@@ -1880,7 +1884,6 @@ body {
   font-size: 1.6rem;
   line-height: 1.75;
   position: relative;
-  min-width: 1040px;
 }
 
 figcaption {
@@ -1926,10 +1929,10 @@ h6 {
 
 .content-inner {
   width: 100%;
-  max-width: calc(calc(16.666% * 4) + 40px);
+  max-width: calc(calc(10% * 8) + 40px);
   padding-left: 20px;
   padding-right: 20px;
-  margin: 0 calc(16.666% - 20px);
+  margin: 0 calc(10% - 20px);
 }
 
 .content-inner.-l {
@@ -1944,10 +1947,10 @@ h6 {
 
 .content-inner--m {
   width: 100%;
-  max-width: calc(calc(16.666% * 2) + 40px);
+  max-width: calc(calc(10% * 4) + 40px);
   padding-left: 20px;
   padding-right: 20px;
-  margin: 0 calc(16.666% * 2 - 20px);
+  margin: 0 calc(10% * 3 - 20px);
 }
 
 .container--l {
@@ -1999,23 +2002,23 @@ h6 {
 }
 
 .site-wrapper .site-line.-line--01 {
-  left: 16.666%;
+  left: 10%;
 }
 
 .site-wrapper .site-line.-line--02 {
-  left: 33.332%;
+  left: 30%;
 }
 
 .site-wrapper .site-line.-line--03 {
-  left: 49.998%;
+  left: 50%;
 }
 
 .site-wrapper .site-line.-line--04 {
-  left: 66.664%;
+  left: 70%;
 }
 
 .site-wrapper .site-line.-line--05 {
-  left: 83.33%;
+  left: 90%;
 }
 
 main {
@@ -2033,6 +2036,7 @@ section + section {
 
 .bg-container {
   background: #f7f7f7;
+  padding: 36px 30px;
 }
 
 .bg-container p + p {
@@ -2041,6 +2045,16 @@ section + section {
 
 .shadow-bg-container {
   position: relative;
+}
+
+.shadow-bg-container:after {
+  content: '';
+  position: absolute;
+  background: #333;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 /* ※content-innerを基準にして、padding・marginはリセットする。レイアウトが崩れるのでベースに使わないこと。*/
@@ -2170,9 +2184,17 @@ section + section {
 
 .t-link-underline {
   text-decoration: underline;
+  word-wrap: break-word;
 }
 
-.ib-row {
+.t-link-underline + .link-icon {
+  padding-left: 0.5em;
+  display: inline-block;
+  font-size: 90%;
+  vertical-align: -0.1em;
+}
+
+.ib-row > * {
   display: inline-block;
 }
 
@@ -2250,7 +2272,7 @@ section + section {
 
 .ttl--line-side {
   font-weight: bold;
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
 }
 
 .ttl--line-side span.ttl-row {
@@ -2289,6 +2311,13 @@ section + section {
   margin-bottom: 2.4rem;
 }
 
+.ttl--underline {
+  font-size: 1.8rem;
+  padding-bottom: 2px;
+  border-bottom: solid 1px #a0a0a0;
+  margin-bottom: 2.2rem;
+}
+
 .page-ttl-head {
   height: 30rem;
   margin-bottom: 9rem;
@@ -2304,7 +2333,7 @@ section + section {
   left: 0;
   top: 0;
   height: 100%;
-  width: calc(100% - 16.666%);
+  width: calc(100% - 10%);
   background: #f7f7f7;
 }
 
@@ -2314,12 +2343,12 @@ section + section {
   right: 0;
   top: 90px;
   height: 100%;
-  width: calc(100% - 16.666% * 2);
+  width: calc(100% - 10% * 2);
   background: #333;
   z-index: -10;
 }
 
-.page-ttl-head h3 {
+.page-ttl-head h2 {
   text-align: center;
   font-weight: bold;
   position: relative;
@@ -2327,15 +2356,15 @@ section + section {
   line-height: 1.5;
 }
 
-.page-ttl-head h3 span {
+.page-ttl-head h2 span {
   display: block;
 }
 
-.page-ttl-head h3 span.en {
+.page-ttl-head h2 span.en {
   font-size: 6rem;
 }
 
-.page-ttl-head h3 span.jp {
+.page-ttl-head h2 span.jp {
   font-size: 1.8rem;
   color: #a0a0a0;
 }
@@ -2365,7 +2394,7 @@ section + section {
 }
 
 .works-link__thumbnail img {
-  transition: .3s all;
+  transition: 0.3s all;
 }
 
 .works-link__info {
@@ -2379,6 +2408,10 @@ section + section {
 .works-link__info .info-ttl {
   font-weight: bold;
   font-size: 1.6rem;
+}
+
+.list--slash li:not(:last-child):after {
+  content: '／';
 }
 
 /*
@@ -2489,12 +2522,21 @@ section + section {
   line-height: 1;
 }
 
+.profile__content .profile__figure:after {
+  left: -33.333%;
+  top: 60px;
+}
+
 .profile__txt__container {
   position: relative;
 }
 
 .profile__txt__container .profile__txt {
   padding: 70px 50px 90px;
+}
+
+.skills__content .bg-container {
+  margin-top: 4rem;
 }
 
 .skills__ability__figure {
@@ -2517,6 +2559,10 @@ section + section {
 
 .skills__ability__info p {
   font-size: 1.4rem;
+}
+
+.skills__strength {
+  padding: 42px 50px;
 }
 
 .skills__tool li {
@@ -2543,8 +2589,14 @@ section + section {
   max-width: calc(100% - w);
 }
 
-.career-content__year span {
+.career-content__year span.year {
   line-height: 1;
+}
+
+.career-content__year span.new {
+  font-size: 2.4rem;
+  color: #a0a0a0;
+  padding-top: 0.8rem;
 }
 
 .career-content__info {
@@ -2564,16 +2616,18 @@ section + section {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  left: 1px;
   right: 0;
   margin: 0 auto;
   width: 1px;
   height: 100%;
   background: #333;
+  z-index: -1;
 }
 
 .career-content__info .info-line .info-icon {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
+  background: #fff;
 }
 
 .career-content__info .info-content h6 {
@@ -2706,6 +2760,77 @@ section + section {
   font-weight: bold;
 }
 
+/*
+  works.scss
+-------------------------------------------------- */
+/*
+  works - common
+-------------------------------------------------- */
+.works__category-nav__item + li {
+  margin-top: 1.4rem;
+}
+
+.works__category-nav__item a {
+  padding-left: 1em;
+  position: relative;
+  transition: 0.3s all;
+}
+
+.works__category-nav__item a:before {
+  content: '';
+  position: absolute;
+  left: calc(0.5em - 2px);
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 3px;
+  height: 3px;
+  background: #333;
+  border-radius: 50%;
+  transition: 0.3s all;
+}
+
+.works__category-nav__item a span.category {
+  transition: 0.3s all;
+}
+
+/*
+  works - archive
+-------------------------------------------------- */
+/*
+  works - detail
+-------------------------------------------------- */
+.works-detail__info__content {
+  margin-bottom: 6rem;
+}
+
+.works-detail__info__content dl + dl {
+  margin-top: 5rem;
+}
+
+.works-detail__info__content dl dt {
+  padding-right: 16px;
+  font-weight: bold;
+}
+
+.works-detail__info__content dl dd:not(:last-of-type) {
+  margin-bottom: 2.4rem;
+}
+
+.works-detail__design + .works-detail__design {
+  margin-top: 8rem;
+}
+
+.works-detail__design__visual li img {
+  border: solid 1px #a0a0a0;
+}
+
+.works-detail__related-link {
+  padding-top: 4rem;
+  margin-top: 8rem;
+  border-top: solid 1px #333;
+}
+
 @media screen and (min-width: 361px) {
   body {
     margin: 0;
@@ -2715,6 +2840,9 @@ section + section {
 @media screen and (min-width: 576px) {
   body {
     margin: 0;
+  }
+  .row.-reverse {
+    flex-direction: row-reverse;
   }
   .hidden-sm-up {
     display: none !important;
@@ -2752,16 +2880,22 @@ section + section {
     flex-wrap: wrap;
   }
   .career__item:nth-child(odd) .career-content__year {
-    justify-content: flex-end;
+    flex-direction: row-reverse;
   }
-  .career__item:nth-child(odd) .career-content__year span {
+  .career__item:nth-child(odd) .career-content__year .year {
     padding-right: 50px;
   }
-  .career__item:nth-child(even) .career-content__year span {
+  .career__item:nth-child(odd) .career-content__year .new {
+    padding-right: 0.8em;
+  }
+  .career__item:nth-child(even) .career-content__year .year {
     padding-left: 50px;
   }
+  .career__item:nth-child(even) .career-content__year .new {
+    padding-left: 0.8em;
+  }
   .career__item:nth-child(odd) .career-content__info .info-line {
-    left: -12px;
+    left: -13px;
   }
   .career__item:nth-child(even) .career-content__info .info-line {
     right: -12px;
@@ -2774,6 +2908,10 @@ section + section {
   }
   .home-works-link__wrapper .works-link__item:nth-child(n + 5) {
     margin-top: 4rem;
+  }
+  .works-detail__info__content dl {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 
@@ -2798,6 +2936,39 @@ section + section {
   }
   .t-link-underline:hover {
     text-decoration: none;
+  }
+  .works__category-nav__item a:after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-top: solid 2px #333;
+    border-right: solid 2px #333;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    transition: 0.3s all;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    margin: auto 0;
+    visibility: hidden;
+  }
+  .works__category-nav__item a:hover {
+    padding-left: 2em;
+  }
+  .works__category-nav__item a:hover:before {
+    width: 1em;
+    height: 2px;
+    border-radius: 0;
+  }
+  .works__category-nav__item a:hover:after {
+    opacity: 1;
+    visibility: visible;
+    left: 0.95em;
+  }
+  .works__category-nav__item a:hover .category {
+    font-weight: bold;
   }
 }
 
@@ -2893,6 +3064,7 @@ section + section {
   .content-inner {
     padding-left: 15px;
     padding-right: 15px;
+    margin: 0 auto;
   }
   .content-inner--m {
     padding-left: 15px;
@@ -2906,9 +3078,6 @@ section + section {
 @media screen and (max-width: 575px) {
   body {
     margin: 0;
-  }
-  body {
-    min-width: 100%;
   }
   .page-child .content-wrapper {
     padding-top: 7rem;
@@ -2932,12 +3101,12 @@ section + section {
     text-align: center !important;
   }
   .ttl--line-side {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
   .ttl--line-side span {
     display: block;
   }
-  .page-ttl-head h3 span.en {
+  .page-ttl-head h2 span.en {
     font-size: 4rem;
   }
   .header-info__bar {

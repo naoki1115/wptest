@@ -89,11 +89,19 @@
 
 .t-link-underline {
   text-decoration: underline;
+  word-wrap: break-word;
 
   &:hover {
     @include mq(ipad-min) {
       text-decoration: none;
     }
+  }
+
+  + .link-icon {
+    padding-left: 0.5em;
+    display: inline-block;
+    font-size: 90%;
+    vertical-align: -0.1em;
   }
 }
 
@@ -101,5 +109,7 @@
 // row
 //
 .ib-row {
-  display: inline-block;
+  > * {
+    display: inline-block;
+  }
 }

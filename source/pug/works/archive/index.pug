@@ -1,0 +1,129 @@
+extends /_includes/_layout.pug
+
+block head_meta
+  title #{baseTitle}
+  meta(name='description' content=baseDescription)
+
+block prepend css
+//- CSSを最後に追加する場合は block append css
+//- CSSをパスを変更する場合は block css
+
+block prepend head_script
+
+block content
+  - var imgSrc = `${imgPath}/works`
+
+  -
+    var worksList = [
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      }
+    ]
+
+  header.header#siteHeader
+    include /_includes/_header
+
+  main.page-child.page-works.page-works-archive
+    .page-ttl-head
+      h2
+        span.en Works
+        span.jp 制作実績
+
+    article.content-wrapper
+      .content-inner
+        //h3.ttl--line-side
+          span.ttl-row
+            span.en ALL WORKS
+            span.ja すべての制作実績
+
+        h3.ttl--line-side
+          span.ttl-row
+            span.en WEB DESIGN
+            span.ja webデザイン
+
+        //h3.ttl--line-side
+          span.ttl-row
+            span.en CORDING
+            span.ja コーディング
+
+        //h3.ttl--line-side
+          span.ttl-row
+            span.en WEB DIRECTION
+            span.ja webディレクション
+
+        //h3.ttl--line-side
+          span.ttl-row
+            span.en OTHERS
+            span.ja その他の制作実績
+
+        .works__content.row.-reverse
+          .works-link__wrapper.col-sm-9.col-12
+            ul.works-link__list.row.-inline
+              each val in worksList
+                li.works-link__item.col-sm-4.col-12
+                  a.works-link(href='/works/detail/')
+                    .works-link__thumbnail
+                      img(src=`${imgSrc}/${val.img}`)
+                    .works-link__info
+                      span.info-company !{val.company}
+                      h4.info-ttl !{val.ttl}
+
+          aside.works__category-nav__wrapper.col-sm-3.col-12
+            nav.works__category-nav
+              ul.works__category-nav__list
+                li.works__category-nav__item
+                  a(href='/works/archive/')
+                    span.category 全てのカテゴリ
+                    span.number （15）
+                li.works__category-nav__item
+                  a(href='/works/archive/')
+                    span.category Webデザイン
+                    span.number （10）
+                li.works__category-nav__item
+                  a(href='/works/archive/')
+                    span.category コーディング
+                    span.number （11）
+                li.works__category-nav__item
+                  a(href='/works/archive/')
+                    span.category ディレクション
+                    span.number （1）
+                li.works__category-nav__item
+                  a(href='/works/archive/')
+                    span.category その他
+                    span.number （0）
+
+  //- footer
+  .footer-wrapper#footerWrapper
+    include /_includes/_footer
+
+block append script
+//- JSを最後に追加する場合は block append script
+//- JSのパスを変更する場合は block script
+

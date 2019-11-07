@@ -1,0 +1,148 @@
+extends /_includes/_layout.pug
+
+block head_meta
+  title #{baseTitle}
+  meta(name='description' content=baseDescription)
+
+block prepend css
+//- CSSを最後に追加する場合は block append css
+//- CSSをパスを変更する場合は block css
+
+block prepend head_script
+
+block content
+  - var imgSrc = `${imgPath}/works`
+
+  -
+    var worksList = [
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      },
+      {
+        img: 'dummy_01.jpg',
+        company: '株式会社カンパニー',
+        ttl: 'コーポレートサイト',
+      }
+    ]
+
+  header.header#siteHeader
+    include /_includes/_header
+
+  main.page-child.page-works.page-works-detail
+    .page-ttl-head
+      h2
+        span.en Works
+        span.jp 制作実績
+
+    article.content-wrapper
+      .content-inner
+        h3.ttl--line-side
+          span.ttl-row
+            span.en WEB DESIGN
+            span.ja webデザイン
+
+        .works__content.row.-reverse
+          .works-detail__wrapper.col-sm-9.col-12
+
+            .works-detail__info__content
+              dl.works-detail__info.row
+                dt.col-sm-4.col-12 タイトル
+                dd.col-sm-8.col-12 サイト名
+                dt.col-sm-4.col-12 クライアント
+                dd.col-sm-8.col-12 株式会社コーポレーション
+                dt.col-sm-4.col-12 製作年
+                dd.col-sm-8.col-12 2019
+                dt.col-sm-4.col-12 URL
+                dd.col-sm-8.col-12
+                  a.t-link-underline(href='https://blog-and-destroy.com/12122' target='_blank') https://blog-and-destroy.com/12122
+                  span.link-icon.icon-new-window
+                dt.col-sm-4.col-12 制作目的
+                dd.col-sm-8.col-12 ブランド力の向上
+
+              dl.works-detail__info.row
+                dt.col-sm-4.col-12 担当範囲
+                dd.col-sm-8.col-12
+                  ul.ib-row.list--slash
+                    li webデザイン
+                    li コーディング
+                dt.col-sm-4.col-12 製作期間
+                dd.col-sm-8.col-12 2日
+                dt.col-sm-4.col-12 使用ツール
+                dd.col-sm-8.col-12
+                  ul.ib-row.list--slash
+                    li adobe XD
+                    li photoshop
+                    li pug
+                    li scss
+
+            .works-detail__info__point.bg-container
+              h5.ttl--underline ここにタイトルが入ります
+              p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。
+              p 文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。
+
+            .works-detail__design__content
+              .works-detail__design.-pc-case
+                h4.ttl--border パソコン表示
+                ul.works-detail__design__visual
+                  li
+                    img(src=`${imgSrc}/dummy_detail_pc.jpg`)
+
+              .works-detail__design.-sp-case
+                h4.ttl--border スマートフォン表示
+                ul.works-detail__design__visual.row
+                  li.col-sm-4.col-12
+                    img(src=`${imgSrc}/dummy_detail_sp.jpg`)
+
+            // 関連実績があれば表示する
+            .works-detail__related-link
+              h4.ttl--border その他の制作実績
+              ul.works-link__list.row.-inline
+                each val in worksList
+                  li.works-link__item.col-sm-4.col-12
+                    a.works-link(href='/works/detail/')
+                      .works-link__thumbnail
+                        img(src=`${imgSrc}/${val.img}`)
+                      .works-link__info
+                        span.info-company !{val.company}
+                        h4.info-ttl !{val.ttl}
+
+
+          aside.works__category-nav__wrapper.col-sm-3.col-12
+            nav.works__category-nav
+              ul.works__category-nav__list
+                li.works__category-nav__item
+                  a(href='/works/archive/')
+                    span.category 全てのカテゴリ
+                    span.number （15）
+                li.works__category-nav__item
+                  a(href='/works/archive/')
+                    span.category Webデザイン
+                    span.number （10）
+                li.works__category-nav__item
+                  a(href='/works/archive/')
+                    span.category コーディング
+                    span.number （11）
+                li.works__category-nav__item
+                  a(href='/works/archive/')
+                    span.category ディレクション
+                    span.number （1）
+                li.works__category-nav__item
+                  a(href='/works/archive/')
+                    span.category その他
+                    span.number （0）
+
+  //- footer
+  .footer-wrapper#footerWrapper
+    include /_includes/_footer
+
+block append script
+//- JSを最後に追加する場合は block append script
+//- JSのパスを変更する場合は block script
+
