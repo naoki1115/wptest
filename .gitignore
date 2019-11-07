@@ -5,6 +5,6 @@ node_modules/
 Thumbs.db
 dest/**
 htdocs/**
-source/sass/foundations/_icon.scss
+source/sass/_foundations/_icons.scss
 
 theme/myoriginal/assets/**
