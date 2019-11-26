@@ -53,8 +53,8 @@
 
 @font-face {
   font-family: 'original-icon';
-  src: url("../fonts/icons/original-icon.eot?1573113287");
-  src: url("../fonts/icons/original-icon.eot?1573113287#iefix") format("eot"), url("../fonts/icons/original-icon.woff2?1573113287") format("woff2"), url("../fonts/icons/original-icon.woff?1573113287") format("woff"), url("../fonts/icons/original-icon.ttf?1573113287") format("truetype"), url("../fonts/icons/original-icon.svg?1573113287#original-icon") format("svg");
+  src: url("../fonts/icons/original-icon.eot?1574737119");
+  src: url("../fonts/icons/original-icon.eot?1574737119#iefix") format("eot"), url("../fonts/icons/original-icon.woff2?1574737119") format("woff2"), url("../fonts/icons/original-icon.woff?1574737119") format("woff"), url("../fonts/icons/original-icon.ttf?1574737119") format("truetype"), url("../fonts/icons/original-icon.svg?1574737119#original-icon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -77,8 +77,16 @@
   content: '\f001';
 }
 
-.icon-new-window:before {
+.icon-facrbook:before {
   content: '\f002';
+}
+
+.icon-mail:before {
+  content: '\f003';
+}
+
+.icon-new-window:before {
+  content: '\f004';
 }
 
 /*
@@ -1887,7 +1895,7 @@ body {
 }
 
 figcaption {
-  padding-top: 0.4rem;
+  padding-top: 0.4px;
 }
 
 iframe {
@@ -1985,7 +1993,7 @@ h6 {
 }
 
 .page-child .content-wrapper {
-  padding-top: 10rem;
+  padding-top: 100px;
 }
 
 .site-wrapper {
@@ -2023,11 +2031,11 @@ h6 {
 
 main {
   display: block;
-  padding-top: 11rem;
+  padding-top: 110px;
 }
 
 section + section {
-  margin-top: 12rem;
+  margin-top: 120px;
 }
 
 .bg {
@@ -2272,11 +2280,11 @@ section + section {
 
 .ttl--line-side {
   font-weight: bold;
-  margin-bottom: 7rem;
+  margin-bottom: 70px;
 }
 
 .ttl--line-side span.ttl-row {
-  padding-left: 2.2em;
+  padding-left: 22px;
   position: relative;
 }
 
@@ -2308,19 +2316,19 @@ section + section {
   border-left: solid 8px #333;
   line-height: 1.4;
   padding-left: 0.5em;
-  margin-bottom: 2.4rem;
+  margin-bottom: 24px;
 }
 
 .ttl--underline {
   font-size: 1.8rem;
   padding-bottom: 2px;
   border-bottom: solid 1px #a0a0a0;
-  margin-bottom: 2.2rem;
+  margin-bottom: 22px;
 }
 
 .page-ttl-head {
   height: 30rem;
-  margin-bottom: 9rem;
+  margin-bottom: 90px;
   position: relative;
   display: flex;
   align-items: center;
@@ -2390,7 +2398,7 @@ section + section {
 
 .works-link__thumbnail {
   border: solid 1px #a0a0a0;
-  margin-bottom: 1.2rem;
+  margin-bottom: 12px;
 }
 
 .works-link__thumbnail img {
@@ -2418,7 +2426,7 @@ section + section {
   text.scss
 -------------------------------------------------- */
 .section-lead-txt {
-  margin-bottom: 5rem;
+  margin-bottom: 50px;
 }
 
 /*
@@ -2536,7 +2544,7 @@ section + section {
 }
 
 .skills__content .bg-container {
-  margin-top: 4rem;
+  margin-top: 40px;
 }
 
 .skills__ability__figure {
@@ -2554,11 +2562,11 @@ section + section {
 }
 
 .skills__ability__info h5 {
-  margin-bottom: 1.4rem;
+  margin-bottom: 14px;
 }
 
 .skills__ability__info p {
-  font-size: 1.4rem;
+  font-size: 14px;
 }
 
 .skills__strength {
@@ -2596,7 +2604,7 @@ section + section {
 .career-content__year span.new {
   font-size: 2.4rem;
   color: #a0a0a0;
-  padding-top: 0.8rem;
+  padding-top: 8px;
 }
 
 .career-content__info {
@@ -2632,14 +2640,14 @@ section + section {
 
 .career-content__info .info-content h6 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 /*
   index.scss
 -------------------------------------------------- */
 .mv__wrapper {
-  height: calc(100vh - 11rem);
+  height: calc(100vh - 110px);
   position: relative;
 }
 
@@ -2658,7 +2666,7 @@ section + section {
 
 .mv__ttl {
   font-size: 7.2rem;
-  margin-bottom: 5rem;
+  margin-bottom: 50px;
   font-weight: bold;
   line-height: 1;
 }
@@ -2742,11 +2750,11 @@ section + section {
 }
 
 .home-contact {
-  padding: 10rem 0 12rem;
+  padding: 100px 0 120px;
 }
 
 .home-contact h3 {
-  margin-bottom: 3.6rem;
+  margin-bottom: 36px;
 }
 
 .home-contact .contact-link {
@@ -2767,7 +2775,7 @@ section + section {
   works - common
 -------------------------------------------------- */
 .works__category-nav__item + li {
-  margin-top: 1.4rem;
+  margin-top: 14px;
 }
 
 .works__category-nav__item a {
@@ -2801,11 +2809,11 @@ section + section {
   works - detail
 -------------------------------------------------- */
 .works-detail__info__content {
-  margin-bottom: 6rem;
+  margin-bottom: 60px;
 }
 
 .works-detail__info__content dl + dl {
-  margin-top: 5rem;
+  margin-top: 50px;
 }
 
 .works-detail__info__content dl dt {
@@ -2814,11 +2822,11 @@ section + section {
 }
 
 .works-detail__info__content dl dd:not(:last-of-type) {
-  margin-bottom: 2.4rem;
+  margin-bottom: 24px;
 }
 
 .works-detail__design + .works-detail__design {
-  margin-top: 8rem;
+  margin-top: 80px;
 }
 
 .works-detail__design__visual li img {
@@ -2826,8 +2834,8 @@ section + section {
 }
 
 .works-detail__related-link {
-  padding-top: 4rem;
-  margin-top: 8rem;
+  padding-top: 40px;
+  margin-top: 80px;
   border-top: solid 1px #333;
 }
 
@@ -2907,7 +2915,7 @@ section + section {
     padding-right: 50px;
   }
   .home-works-link__wrapper .works-link__item:nth-child(n + 5) {
-    margin-top: 4rem;
+    margin-top: 40px;
   }
   .works-detail__info__content dl {
     display: flex;
@@ -3080,13 +3088,13 @@ section + section {
     margin: 0;
   }
   .page-child .content-wrapper {
-    padding-top: 7rem;
+    padding-top: 70px;
   }
   main {
-    padding-top: 6rem;
+    padding-top: 60px;
   }
   section + section {
-    margin-top: 8rem;
+    margin-top: 80px;
   }
   .bg-container {
     padding: 40px 24px;
@@ -3101,7 +3109,7 @@ section + section {
     text-align: center !important;
   }
   .ttl--line-side {
-    margin-bottom: 4rem;
+    margin-bottom: 40px;
   }
   .ttl--line-side span {
     display: block;
@@ -3123,7 +3131,7 @@ section + section {
   .header-info__nav__wrapper {
     position: fixed;
     left: -100%;
-    top: 6rem;
+    top: 60px;
     background: #f7f7f7;
     width: 100%;
     height: 100%;

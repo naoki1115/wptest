@@ -14,7 +14,7 @@
 .works__category-nav {
   &__item {
     + li {
-      margin-top: 1.4rem;
+      margin-top: 14px;
     }
 
     a {
@@ -94,7 +94,7 @@
   works - detail
 -------------------------------------------------- */
 .works-detail__info__content {
-  margin-bottom: 6rem;
+  margin-bottom: 60px;
 
   dl {
     @include mq(sm-min) {
@@ -102,7 +102,7 @@
     }
 
     + dl {
-      margin-top: 5rem;
+      margin-top: 50px;
     }
 
     dt {
@@ -112,7 +112,7 @@
 
     dd {
       &:not(:last-of-type) {
-        margin-bottom: 2.4rem;
+        margin-bottom: 24px;
       }
     }
   }
@@ -122,7 +122,7 @@
   $this: &;
 
   + #{$this} {
-    margin-top: 8rem;
+    margin-top: 80px;
   }
 
   &__visual {
@@ -135,7 +135,7 @@
 }
 
 .works-detail__related-link {
-  padding-top: 4rem;
-  margin-top: 8rem;
+  padding-top: 40px;
+  margin-top: 80px;
   border-top: solid 1px $primary;
 }

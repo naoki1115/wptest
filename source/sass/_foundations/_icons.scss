@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'original-icon';
-  src: url('../fonts/icons/original-icon.eot?1573113287');
-  src: url('../fonts/icons/original-icon.eot?1573113287#iefix') format('eot'),
-    url('../fonts/icons/original-icon.woff2?1573113287') format('woff2'),
-    url('../fonts/icons/original-icon.woff?1573113287') format('woff'),
-    url('../fonts/icons/original-icon.ttf?1573113287') format('truetype'),
-    url('../fonts/icons/original-icon.svg?1573113287#original-icon') format('svg');
+  src: url('../fonts/icons/original-icon.eot?1574737119');
+  src: url('../fonts/icons/original-icon.eot?1574737119#iefix') format('eot'),
+    url('../fonts/icons/original-icon.woff2?1574737119') format('woff2'),
+    url('../fonts/icons/original-icon.woff?1574737119') format('woff'),
+    url('../fonts/icons/original-icon.ttf?1574737119') format('truetype'),
+    url('../fonts/icons/original-icon.svg?1574737119#original-icon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -27,6 +27,14 @@
   content: '\f001'
 }
 
-.icon-new-window:before {
+.icon-facrbook:before {
   content: '\f002'
+}
+
+.icon-mail:before {
+  content: '\f003'
+}
+
+.icon-new-window:before {
+  content: '\f004'
 }
