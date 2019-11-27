@@ -6,8 +6,10 @@
 // カスタムメニューを有効化
 add_theme_support('menus');
 
-add_action('after_setup_theme', 'theme_navigation_register');
-
-function theme_navigation_register() {
+/**
+ * カスタムメニュー
+ */
+add_action('after_setup_theme', 'myoriginal_navigation_register');
+function myoriginal_navigation_register() {
   register_nav_menu('global-navigation', 'グローバルナビゲーション');
 }

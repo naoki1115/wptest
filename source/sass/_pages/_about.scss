@@ -84,9 +84,10 @@
     height: 72px;
     background: $font-color;
     @include flexCenter;
+    margin-bottom: 12px;
 
-    &:not(:first-child) {
-      margin-left: 12px;
+    &:not(:last-child) {
+      margin-right: 12px;
     }
 
     img {
@@ -101,7 +102,7 @@
 .career-content {
   // layout
   .career__item:nth-child(even) & {
-    @include mq(sm-min) {
+    @include mq(md-min) {
       flex-direction: row-reverse;
     }
   }
@@ -111,8 +112,17 @@
     font-weight: $bold;
     @include flexChild(50%);
 
-    @include mq(sm-min) {
+    @include mq(md-min) {
       @include dflex;
+    }
+
+    @include mq(md) {
+      font-size: 3rem;
+      @include flexChild(4em);
+    }
+
+    @include mq(sm) {
+      font-size: 2.4rem;
     }
 
     span {
@@ -129,19 +139,18 @@
 
     // layout
     .career__item:nth-child(odd) & {
-      @include mq(sm-min) {
-        // justify-content: flex-end;
+      @include mq(md-min) {
         flex-direction: row-reverse;
       }
 
       .year {
-        @include mq(sm-min) {
+        @include mq(md-min) {
           padding-right: 50px;
         }
       }
 
       .new {
-        @include mq(sm-min) {
+        @include mq(md-min) {
           padding-right: 0.8em;
         }
       }
@@ -150,13 +159,13 @@
     // layout
     .career__item:nth-child(even) & {
       .year {
-        @include mq(sm-min) {
+        @include mq(md-min) {
           padding-left: 50px;
         }
       }
 
       .new {
-        @include mq(sm-min) {
+        @include mq(md-min) {
           padding-left: 0.8em;
         }
       }
@@ -166,7 +175,11 @@
   &__info {
     @include flexChild(50%);
     position: relative;
-    padding: 10px 0 50px;
+    padding: 10px 0 80px;
+
+    @include mq(md) {
+      @include flexCalc(4em);
+    }
 
     .info-line {
       position: absolute;
@@ -193,14 +206,14 @@
 
       // lyaout
       .career__item:nth-child(odd) & {
-        @include mq(sm-min) {
+        @include mq(md-min) {
           left: -13px;
         }
       }
 
       // lyaout
       .career__item:nth-child(even) & {
-        @include mq(sm-min) {
+        @include mq(md-min) {
           right: -12px;
         }
       }
@@ -209,14 +222,14 @@
     .info-content {
       // layout
       .career__item:nth-child(odd) & {
-        @include mq(sm-min) {
+        @include mq(md-min) {
           padding-left: 50px;
         }
       }
 
       // layout
       .career__item:nth-child(even) & {
-        @include mq(sm-min) {
+        @include mq(md-min) {
           padding-right: 50px;
         }
       }

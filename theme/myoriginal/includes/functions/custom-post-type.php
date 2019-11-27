@@ -1,10 +1,13 @@
 <?php
 
-add_action('init', 'register_custom_posts');
-function register_custom_posts() {
+/**
+ * カスタム投稿
+ */
+add_action('init', 'myoriginal_register_custom_posts');
+function myoriginal_register_custom_posts() {
   // 実績
   register_post_type(
-    works,
+    MYORIGINAL_WORK,
     array(
       'labels' => array(
         'name' => __('制作実績'),
@@ -20,26 +23,16 @@ function register_custom_posts() {
       ),
       'has_archive' => true,
       'public' => true,
-      'show_ui' => true
-    )
-  );
-
-  // ニュースカテゴリー
-  register_taxonomy(
-    works_cate,
-    works,
-    array(
-      'label' => '実績カテゴリー',
-      'public' => true,
-      'show_admin_column' => true,
       'show_ui' => true,
-      'hierarchical' => true,
+      'rewrite' => array(
+        'with_front' => false
+      )
     )
   );
 
   // 経歴
   register_post_type(
-    carrer,
+    MYORIGINAL_CARRER,
     array(
       'labels' => array(
         'name' => __('経歴'),
@@ -56,6 +49,37 @@ function register_custom_posts() {
       'has_archive' => false,
       'public' => false,
       'show_ui' => true,
+    )
+  );
+}
+
+/**
+ * タクソノミー
+ */
+add_action('init', 'myoriginal_work_taxonomy');
+function myoriginal_work_taxonomy()
+{
+  // 実績カテゴリ
+  register_taxonomy(
+    MYORIGINAL_WORK_CASE,
+    MYORIGINAL_WORK,
+    array(
+      'labels' => array(
+        'name' => __('実績カテゴリ'),
+        'singular_name' => __('実績カテゴリ'),
+        'all_items' => __('実績カテゴリ一覧'),
+        'edit_item' => __('実績カテゴリを編集'),
+        'view_item' => __('実績カテゴリを表示'),
+        'parent_item' => null,
+        'parentitem_colon' => null
+      ),
+      'public' => true,
+      'show_admin_column' => true,
+      'show_ui' => true,
+      'hierarchical' => true,
+      'rewrite' => array(
+        'slug' => 'work',
+      )
     )
   );
 }

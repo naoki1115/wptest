@@ -27,9 +27,9 @@ $black: #000 !default;
 $blue: #003894 !default;
 $indigo: #3f51b5 !default;
 $purple: #673ab7 !default;
-$pink: #CB2BAA !default;
-$red: #DC000C !default;
-$orange: #F5A217 !default;
+$pink: #cb2baa !default;
+$red: #dc000c !default;
+$orange: #f5a217 !default;
 $yellow: #d3b119 !default;
 $green: #74a12b !default;
 $teal: #009481 !default;
@@ -63,14 +63,12 @@ $lighter: 300;
 $light: light;
 
 // font family
-$sans:"游ゴシック体",
-YuGothic,
-"游ゴシック Medium",
-"Yu Gothic Medium",
-"游ゴシック",
-"Yu Gothic",
-"メイリオ",
-sans-serif !default;
+$sans: '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium',
+  '游ゴシック', 'Yu Gothic', 'メイリオ', sans-serif !default;
+
+$jpFont: 'mroriginal jp gothic', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN',
+  Yu Gothic, Meiryo, sans-serif !default;
+$enFont: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
 $serif: 'Merriweather', serif !default;
 $cursive: 'Sacramento', cursive !default;
@@ -94,7 +92,7 @@ $small-width: 640px !default;
 // header
 $headerPC: 7rem !default;
 $headerTB: 6.4rem !default;
-$headerSP: 5.6rem !default // bootstrap: form
+$headerSP: 5.6rem !default; // bootstrap: form
 // $border-radius: 5px;
 // $input-focus-border-color: $red;
 // $grid-gutter-width: 20px;
@@ -103,7 +101,6 @@ $headerSP: 5.6rem !default // bootstrap: form
 // $admin-sidebar-width: 240px !default;
 // $admin-header-height: 4.8rem !default;
 
-
 //
 // 04.
 // -----------------------------------------------------
@@ -111,7 +108,8 @@ $headerSP: 5.6rem !default // bootstrap: form
 //
 
 // media queries breakpoints
-$breakpoints: ('xs': 'screen and (max-width: 360px)',
+$breakpoints: (
+  'xs': 'screen and (max-width: 360px)',
   'xs-min': 'screen and (min-width: 361px)',
   'sm': 'screen and (max-width: 575px)',
   'sm-min': 'screen and (min-width: 576px)',
@@ -129,7 +127,7 @@ $breakpoints: ('xs': 'screen and (max-width: 360px)',
   'l-pc-min': 'screen and (min-width: 1260px)',
   'xxl': 'screen and (max-width: 1439px)',
   'xxl-min': 'screen and (min-width: 1440px)',
-  'lg-md': 'screen and (min-width: 768px) and (max-width: 991px)',
+  'lg-md': 'screen and (min-width: 768px) and (max-width: 991px)'
 ) !default;
 
 @mixin mq($breakpoint: sm) {
@@ -216,12 +214,12 @@ $breakpoints: ('xs': 'screen and (max-width: 360px)',
 @mixin flexAuto($max: 100%) {
   flex: 0 0 auto;
   width: auto;
-  max-width: $max
+  max-width: $max;
 }
 
 @mixin flexChild($w: 0) {
-  flex: 0 0 calc(100% - #{$w});
-  max-width: calc(100% - #{w});
+  flex: 0 0 #{$w};
+  max-width: #{$w};
 }
 
 @mixin flexCalc($w: 0) {

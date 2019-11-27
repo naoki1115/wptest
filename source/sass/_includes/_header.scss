@@ -8,13 +8,21 @@
   width: 100%;
   z-index: 999;
   background: #fff;
+
+  &__inner {
+    padding: 0 20px;
+
+    @include mq(md) {
+      padding: 0 15px;
+    }
+  }
 }
 
 .header-info {
   $this: &;
   position: relative;
 
-  @include mq(sm-min) {
+  @include mq(md-min) {
     @include dflex;
     justify-content: space-between;
     align-items: center;
@@ -22,7 +30,7 @@
   }
 
   &__bar {
-    @include mq(sm) {
+    @include mq(md) {
       @include dflex;
       position: relative;
       align-items: center;
@@ -33,7 +41,7 @@
       padding-left: 40px;
       font-size: 2.8rem;
 
-      @include mq(sm) {
+      @include mq(md) {
         padding-left: 15px;
         font-size: 2rem;
       }
@@ -46,6 +54,7 @@
     right: 0;
     width: 6rem;
     height: 6rem;
+    background: $primary;
 
     .nav-trigger {
       width: 100%;
@@ -53,7 +62,7 @@
       position: relative;
 
       span {
-        background: $primary;
+        background: #fff;
         width: 32px;
         height: 2px;
         position: absolute;
@@ -95,7 +104,7 @@
 }
 
 .header-info__nav__wrapper {
-  @include mq(sm) {
+  @include mq(md) {
     position: fixed;
     left: -100%;
     top: 60px;
@@ -113,17 +122,17 @@
 
 .header-info__nav {
   &__list {
-    @include mq(sm-min) {
+    @include mq(md-min) {
       @include dflex;
     }
 
     li {
-      @include mq(sm) {
+      @include mq(md) {
         padding-left: 30px;
       }
 
       + li {
-        @include mq(sm-min) {
+        @include mq(md-min) {
           margin-left: 50px;
         }
       }
@@ -132,7 +141,7 @@
         font-weight: $bold;
         position: relative;
 
-        @include mq(sm) {
+        @include mq(md) {
           height: 6rem;
           display: block;
           @include dflex;
@@ -140,7 +149,7 @@
         }
 
         &:before {
-          @include mq(sm) {
+          @include mq(md) {
             content: '';
             position: absolute;
             left: 15px;
@@ -154,7 +163,7 @@
         }
 
         &:after {
-          @include mq(sm) {
+          @include mq(md) {
             content: '';
             position: absolute;
             right: 15px;
@@ -168,7 +177,7 @@
         }
 
         span {
-          @include mq(sm) {
+          @include mq(md) {
             padding-right: 1.5em;
             background: $gray-bg;
             position: relative;

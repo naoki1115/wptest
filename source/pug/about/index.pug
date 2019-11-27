@@ -47,14 +47,14 @@ block content
               span.ja 自己紹介
 
           .profile__content.row
-            .col-sm-6.col-12
+            .col-lg-6.col-md-7.col-12
               .profile__txt__container
                 .profile__txt.bg-container
                   p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
                   p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
                   p この文章はダミーです。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
 
-            .col-sm-3.col-12
+            .col-md-3.col-12
               .profile__figure.shadow-bg-container
                 img(src=`${imgSrc}/profile_face.jpg`)
 
@@ -73,13 +73,13 @@ block content
             .skills__ability
               ul.skills__ability__list.row
                 each val in skills
-                  li.col-sm-6.col-12.row
+                  li.col-md-6.col-12.row
                     .skills__ability__figure.col-sm-6.col-12
                       figure
                         img(src=`${imgSrc}/${val.img}`)
                       span.ability-number.t-serif.t-italic !{val.n}
 
-                    .skills__ability__info.col-sm-6.col-12
+                    .skills__ability__info.col-md-6.col-12
                       .info-inner
                         h5 !{val.ttl}
                         p !{val.txt}

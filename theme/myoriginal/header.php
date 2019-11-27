@@ -3,53 +3,25 @@
 ## theme header.php
 /******************************************/
 ?>
+<!doctype html>
+<html <?php language_attributes();?> prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="<?php bloginfo('charset');?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <?php wp_head();?>
+  </head>
 
-<!DOCTYPE html>
-<html lang="<?php bloginfo('language'); ?>">
-<head>
-  <meta charset="<?php bloginfo('charset'); ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="format-detection" content="telephone=no">
-  <title><?php bloginfo('name')?></title>
-  <?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?> id="siteBody">
-  <div class="site-wrapper">
-    <header class="header" id="siteHeader">
-      <div class="header__inner">
+  <body <?php body_class();?> id="siteBody">
+    <div class="site-wrapper" id="siteWrapper">
+      <div class="site-line -line--01"></div>
+      <div class="site-line -line--02"></div>
+      <div class="site-line -line--03"></div>
+      <div class="site-line -line--04"></div>
+      <div class="site-line -line--05"></div>
 
-        <div class='header__info'>
-          <h1 class="header__logo">
-            <a href=<?php echo home_url(); ?>>WP Test Site</a>
-          </h1>
-          <div class="header__nav__trigger">
-            <button id="spNavTrigger">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
-        </div>
-        <!-- header__info -->
+      <header class="header" id="siteHeader">
+        <?php get_template_part('includes/theme/header/global', 'navigation');?>
+      </header>
 
-        <div class="header__nav__wrapper">
-          <nav class="header__nav">
-            <?php
-            $args = array(
-              'theme_location' => 'global-navigation',
-              'menu' => '',
-              'menu_class' => 'header__nav__list',
-              'menu_id' => '',
-              'container' => false,
-              'container_class' => '',
-              'items_wrap' => '<ul class="%2$s">%3$s</ul>'
-            );
-            wp_nav_menu($args);
-            ?>
-          </nav>
-        </div>
-
-      </div>
-      <!-- header_inner -->
-    </header>
