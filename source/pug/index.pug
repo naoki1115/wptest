@@ -61,7 +61,7 @@ block content
   header.header#siteHeader
     include /_includes/_header
 
-  main.page-index
+  main.page-home
     .mv__wrapper
       .mv__inner
         .mv
@@ -72,14 +72,14 @@ block content
         span.t-italic SCROLL
 
     article.content-wrapper
-      section.home-about
+      section.home__about
         h2.ttl--border-vertical
           span.en ABOUT
           span.ja わたしについて
 
         .content-inner
 
-      section.home-works
+      section.home__works
         h2.ttl--border-vertical
           span.en WORKS
           span.ja 制作実績
@@ -87,7 +87,7 @@ block content
         .content-inner
           p.section-lead-txt.t-center-up 非掲載実績をご希望の方は、別途ご対応させていただきます。<br>お問い合わせ、または各種SNSツールよりご連絡いただきますようお願いいたします。
 
-          .home-works-link__wrapper
+          .home__works-link__wrapper
             ul.works-link__list.row.-inline
               each val in worksList
                 li.works-link__item.col-md-3.col-sm-6.col-12
@@ -101,7 +101,7 @@ block content
             .btn-container
               a(href='/works/archive') view more
 
-      section.home-contact.bg
+      section.home__contact.bg
         h2.ttl--has-en.t-center
           span.en CONTACT
           span.ja お問い合わせ

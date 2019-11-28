@@ -84,7 +84,7 @@
 //
 // works
 //
-.home-works-link__wrapper {
+.home__works-link__wrapper {
   .works-link__item {
     &:nth-child(n + 5) {
       @include mq(sm-min) {
@@ -97,7 +97,7 @@
 //
 // contact
 //
-.home-contact {
+.home__contact {
   padding: 100px 0 120px;
 
   h3 {
