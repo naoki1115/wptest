@@ -1,7 +1,7 @@
 <section class="home__work">
   <h2 class="ttl--border-vertical">
     <span class="en">WORKS</span>
-    <span class="ja">制作実績</span>
+    <span class="jp">制作実績</span>
   </h2>
 
   <div class="content-inner">

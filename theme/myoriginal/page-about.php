@@ -8,8 +8,8 @@ get_header();
 <main class="<?php get_page_main_class();?>">
   <div class="page-ttl-head">
     <h2>
-      <sapn class="en">ABOUT</sapn>
-      <span class="ja">わたしについて</span>
+      <span class="en">ABOUT</span>
+      <span class="jp">わたしについて</span>
     </h2>
   </div>
 
@@ -19,7 +19,7 @@ get_header();
         <h3 class="ttl--inline-side">
           <span class="ttl-row">
             <span class="en">PROFILE</span>
-            <span class="ja">自己紹介</span>
+            <span class="jp">自己紹介</span>
           </span>
         </h3>
         <div class="profile__content row">
@@ -44,7 +44,7 @@ get_header();
         <h3 class="ttl--line-side">
           <span class="ttl-row">
             <span class="en">SKILLS</span>
-            <span class="ja">できること</span>
+            <span class="jp">できること</span>
           </span>
         </h3>
 

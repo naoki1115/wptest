@@ -10,7 +10,7 @@ get_header();
   <div class="page-ttl-head">
     <h2>
       <span class="en">Works</span>
-      <span class="ja">制作実績</span>
+      <span class="jp">制作実績</span>
     </h2>
   </div>
 

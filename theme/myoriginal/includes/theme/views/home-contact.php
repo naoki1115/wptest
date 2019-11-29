@@ -1,7 +1,7 @@
 <section class="home__contact bg">
   <h2 class="ttl--has-en t-center">
     <span class="en">CONTACT</span>
-    <span class="ja">お問い合わせ</span>
+    <span class="jp">お問い合わせ</span>
   </h2>
 
   <div class="content-inner--m">
