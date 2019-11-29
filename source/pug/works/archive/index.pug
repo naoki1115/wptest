@@ -84,7 +84,7 @@ block content
             span.ja その他の制作実績
 
         .works__content.row.-reverse
-          .works-link__wrapper.col-sm-9.col-12
+          .works-link__wrapper.col-lg-9.col-12
             ul.works-link__list.row.-inline
               each val in worksList
                 li.works-link__item.col-md-4.col-sm-6.col-12
@@ -95,29 +95,7 @@ block content
                       span.info-company !{val.company}
                       h4.info-ttl !{val.ttl}
 
-          aside.works__category-nav__wrapper.col-sm-3.col-12
-            nav.works__category-nav
-              ul.works__category-nav__list
-                li.works__category-nav__item
-                  a(href='/works/archive/')
-                    span.category 全てのカテゴリ
-                    span.number （15）
-                li.works__category-nav__item
-                  a(href='/works/archive/')
-                    span.category Webデザイン
-                    span.number （10）
-                li.works__category-nav__item
-                  a(href='/works/archive/')
-                    span.category コーディング
-                    span.number （11）
-                li.works__category-nav__item
-                  a(href='/works/archive/')
-                    span.category ディレクション
-                    span.number （1）
-                li.works__category-nav__item
-                  a(href='/works/archive/')
-                    span.category その他
-                    span.number （0）
+          include /_includes/_works_nav
 
   //- footer
   .footer-wrapper#footerWrapper

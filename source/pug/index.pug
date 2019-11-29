@@ -76,8 +76,15 @@ block content
         h2.ttl--border-vertical
           span.en ABOUT
           span.ja わたしについて
-
         .content-inner
+          .home__about__content.row
+            .col-md-6.col-12.home__about__content__info
+              p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+              .btn-container
+                a(href='/about/') view more
+            .col-md-6.col-12.home__about__content__figure
+              figure.shadow-bg-container
+                img(src=`${imgSrc}/aboutme.jpg`)
 
       section.home__works
         h2.ttl--border-vertical

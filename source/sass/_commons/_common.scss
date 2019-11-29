@@ -99,8 +99,10 @@ h6 {
   margin: 0 calc(#{$separate} - 20px);
 
   @include mq(md) {
+    max-width: calc(#{$base-widthSP} + 40px);
     @include innerPD(15px);
     margin: 0 auto;
+
   }
 
   &.-l {

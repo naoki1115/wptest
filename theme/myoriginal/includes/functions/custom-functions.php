@@ -4,6 +4,16 @@
 /**********************************************/
 
 /**
+ * themeフォルダの画像パスを短くする
+ *
+ */
+add_action('the_content', 'myoriginal_replace_imgpath');
+function myoriginal_replace_imgpath($arg) {
+  $content = str_replace( '"assets/img', '"' . get_template_directory_uri() . '/assets/img/', $arg );
+  return $content;
+}
+
+/**
  * main クラスを付与する
  *
  * @return string

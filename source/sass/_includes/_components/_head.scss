@@ -21,6 +21,25 @@
     background: $font-color;
     top: 0;
     left: 0;
+
+    @include mq(lg) {
+      width: 16px;
+    }
+
+    @include mq(sm) {
+      width: 12px;
+    }
+  }
+
+  &:after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: $primary;
+    position: absolute;
+    transform: translateX(-100%);
+    transition: .3s all;
+    z-index: 1;
   }
 
   span {
@@ -29,11 +48,27 @@
     &.en {
       font-size: 8rem;
       padding-bottom: 0.15em;
+
+      @include mq(lg) {
+        font-size: 6rem;
+      }
+
+      @include mq(md) {
+        font-size: 5rem;
+      }
+
+      @include mq(sm) {
+        font-size: 4rem;
+      }
     }
 
     &.ja {
       color: $gray-500;
       font-size: 2.1rem;
+
+      @include mq(sm) {
+        font-size: 1.8rem;
+      }
     }
   }
 }
@@ -49,8 +84,7 @@
       line-height: 1.2;
     }
 
-    &.ja {
-    }
+    &.ja {}
   }
 }
 
@@ -87,18 +121,30 @@
         width: 1.5em;
         height: 2px;
         background: $primary;
+
+        @include mq(sm) {
+          top: .65em;
+          bottom: auto;
+        }
       }
     }
 
     &.en {
       font-size: 4.6rem;
       line-height: 1;
+
+      @include mq(sm) {
+        font-size: 3.2rem;
+      }
     }
 
     &.ja {
       font-size: 1.6rem;
       color: $gray-500;
-      padding-left: 1.3em;
+
+      @include mq(sm-min) {
+        padding-left: 1.3em;
+      }
     }
   }
 }

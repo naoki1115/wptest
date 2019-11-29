@@ -63,15 +63,30 @@ $lighter: 300;
 $light: light;
 
 // font family
-$sans: '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium',
-  '游ゴシック', 'Yu Gothic', 'メイリオ', sans-serif !default;
+$sans: '游ゴシック体',
+YuGothic,
+'游ゴシック Medium',
+'Yu Gothic Medium',
+'游ゴシック',
+'Yu Gothic',
+'メイリオ',
+sans-serif !default;
 
-$jpFont: 'mroriginal jp gothic', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN',
-  Yu Gothic, Meiryo, sans-serif !default;
-$enFont: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$jpFont: 'mroriginal jp gothic',
+'Hiragino Sans',
+'Hiragino Kaku Gothic ProN',
+Yu Gothic,
+Meiryo,
+sans-serif !default;
+$enFont: 'Helvetica Neue',
+'Helvetica',
+'Arial',
+sans-serif;
 
-$serif: 'Merriweather', serif !default;
-$cursive: 'Sacramento', cursive !default;
+$serif: 'Merriweather',
+serif !default;
+$cursive: 'Sacramento',
+cursive !default;
 
 $icons: 'original-icon' !default;
 
@@ -83,8 +98,11 @@ $icons: 'original-icon' !default;
 
 // container
 $separate: 10%;
+$separateSP: 11%;
 
 $base-width: calc(#{$separate} * 8) !default;
+$base-widthSP: calc(#{$separateSP} * 8) !default;
+
 $large-width: 1240px !default;
 $medium-width: calc(#{$separate} * 4) !default;
 $small-width: 640px !default;
@@ -108,8 +126,7 @@ $headerSP: 5.6rem !default; // bootstrap: form
 //
 
 // media queries breakpoints
-$breakpoints: (
-  'xs': 'screen and (max-width: 360px)',
+$breakpoints: ('xs': 'screen and (max-width: 360px)',
   'xs-min': 'screen and (min-width: 361px)',
   'sm': 'screen and (max-width: 575px)',
   'sm-min': 'screen and (min-width: 576px)',

@@ -49,33 +49,33 @@ block content
             span.ja webデザイン
 
         .works__content.row.-reverse
-          .works-detail__wrapper.col-sm-9.col-12
+          .works-detail__wrapper.col-lg-9.col-12
 
             .works-detail__info__content
               dl.works-detail__info.row
-                dt.col-sm-4.col-12 タイトル
-                dd.col-sm-8.col-12 サイト名
-                dt.col-sm-4.col-12 クライアント
-                dd.col-sm-8.col-12 株式会社コーポレーション
-                dt.col-sm-4.col-12 製作年
-                dd.col-sm-8.col-12 2019
-                dt.col-sm-4.col-12 URL
-                dd.col-sm-8.col-12
+                dt.col-lg-4.col-sm-3.col-12 タイトル
+                dd.col-lg-8.col-sm-9.col-12 サイト名
+                dt.col-lg-4.col-sm-3.col-12 クライアント
+                dd.col-lg-8.col-sm-9.col-12 株式会社コーポレーション
+                dt.col-lg-4.col-sm-3.col-12 製作年
+                dd.col-lg-8.col-sm-9.col-12 2019
+                dt.col-lg-4.col-sm-3.col-12 URL
+                dd.col-lg-8.col-sm-9.col-12
                   a.t-link-underline(href='https://blog-and-destroy.com/12122' target='_blank') https://blog-and-destroy.com/12122
                   span.link-icon.icon-new-window
-                dt.col-sm-4.col-12 制作目的
-                dd.col-sm-8.col-12 ブランド力の向上
+                dt.col-lg-4.col-sm-3.col-12 制作目的
+                dd.col-lg-8.col-sm-9.col-12 ブランド力の向上
 
               dl.works-detail__info.row
-                dt.col-sm-4.col-12 担当範囲
-                dd.col-sm-8.col-12
+                dt.col-lg-4.col-sm-3.col-12 担当範囲
+                dd.col-lg-8.col-sm-9.col-12
                   ul.ib-row.list--slash
                     li webデザイン
                     li コーディング
-                dt.col-sm-4.col-12 製作期間
-                dd.col-sm-8.col-12 2日
-                dt.col-sm-4.col-12 使用ツール
-                dd.col-sm-8.col-12
+                dt.col-lg-4.col-sm-3.col-12 製作期間
+                dd.col-lg-8.col-sm-9.col-12 2日
+                dt.col-lg-4.col-sm-3.col-12 使用ツール
+                dd.col-lg-8.col-sm-9.col-12
                   ul.ib-row.list--slash
                     li adobe XD
                     li photoshop
@@ -105,7 +105,7 @@ block content
               h4.ttl--border その他の制作実績
               ul.works-link__list.row.-inline
                 each val in worksList
-                  li.works-link__item.col-sm-4.col-12
+                  li.works-link__item.col-md-4.col-sm-6.col-12
                     a.works-link(href='/works/detail/')
                       .works-link__thumbnail
                         img(src=`${imgSrc}/${val.img}`)
@@ -113,30 +113,7 @@ block content
                         span.info-company !{val.company}
                         h4.info-ttl !{val.ttl}
 
-
-          aside.works__category-nav__wrapper.col-sm-3.col-12
-            nav.works__category-nav
-              ul.works__category-nav__list
-                li.works__category-nav__item
-                  a(href='/works/archive/')
-                    span.category 全てのカテゴリ
-                    span.number （15）
-                li.works__category-nav__item
-                  a(href='/works/archive/')
-                    span.category Webデザイン
-                    span.number （10）
-                li.works__category-nav__item
-                  a(href='/works/archive/')
-                    span.category コーディング
-                    span.number （11）
-                li.works__category-nav__item
-                  a(href='/works/archive/')
-                    span.category ディレクション
-                    span.number （1）
-                li.works__category-nav__item
-                  a(href='/works/archive/')
-                    span.category その他
-                    span.number （0）
+          include /_includes/_works_nav
 
   //- footer
   .footer-wrapper#footerWrapper
