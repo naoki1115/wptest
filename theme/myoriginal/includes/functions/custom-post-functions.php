@@ -9,22 +9,22 @@
  * @param integer $col item-column-width
  * @return string $html htmlcode
  */
-function get_work_link($col)
-{
-  switch ($col) {
-    case 3:
-      $html = '<li class="works-link__item col-md-4 col-sm-6 col-12">';
-      continue;
-    case 4:
-      $html = '<li class="works-link__item col-md-3 col-sm-6 col-12">';
-      continue;
-  }
+// function get_work_link($col)
+// {
+//   switch ($col) {
+//     case 3:
+//       $html = '<li class="works-link__item col-md-4 col-sm-6 col-12">';
+//       continue;
+//     case 4:
+//       $html = '<li class="works-link__item col-md-3 col-sm-6 col-12">';
+//       continue;
+//   }
 
-  $html .= '<a class="works-link" href="' . get_permalink(get_the_ID()) . '">';
-  $html .= get_work_link_thumbnail();
-  $html .= get_work_link_info();
-  $html .= '</a></li>';
-}
+//   $html .= '<a class="works-link" href="' . get_permalink(get_the_ID()) . '">';
+//   $html .= get_work_link_thumbnail();
+//   $html .= get_work_link_info();
+//   $html .= '</a></li>';
+// }
 
 /**
  * 実績アーカイブ サムネイル取得

@@ -5,7 +5,7 @@
 ?>
       <div class="footer__wrapper" id ="siteFooterWrapper">
         <footer class="footer" id="siteFooter">
-          <span class="footer__inner content-inner">
+          <div class="footer__inner content-inner">
             <ul class="footer__linnk">
               <li>
                 <a href="" target="_blank">
@@ -18,7 +18,10 @@
                 </a>
               </li>
             </ul>
-            <p class="footer__message">Thank you for reading the website through to the end ;)</p>
+            <p class="footer__message t-ib-row">
+              <span>Thank you for reading the website </span>
+              <span>through to the end ;)</span>
+            </p>
             <span class="footer__copyright">Copyright © Naoki Yoshikawa</span>
           </div>
         </footer>

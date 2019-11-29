@@ -2005,8 +2005,18 @@ h6 {
   top: 0;
   height: 100%;
   width: 1px;
-  background: #eaeaea;
   z-index: -1;
+}
+
+.site-wrapper .site-line:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 1px 8px;
+  background-image: linear-gradient(to bottom, #eaeaea, #eaeaea 3px, transparent 3px, transparent 8px);
 }
 
 .site-wrapper .site-line.-line--01 {
@@ -2427,6 +2437,29 @@ section + section {
 -------------------------------------------------- */
 .section-lead-txt {
   margin-bottom: 50px;
+}
+
+/*
+  footer.scss
+-------------------------------------------------- */
+.footer {
+  background: #333;
+  padding: 40px 0;
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+
+.footer__message {
+  font-size: 1.1rem;
+}
+
+.footer__copyright {
+  position: fixed;
+  left: -80px;
+  top: 50%;
+  -webkit-transform: translateY(-50%) rotate(90deg);
+          transform: translateY(-50%) rotate(90deg);
 }
 
 /*
