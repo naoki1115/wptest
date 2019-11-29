@@ -2,7 +2,14 @@
 // ----
 global.env = process.env.NODE_ENV || 'DEV'
 
-import { src, dest, watch, parallel, series, lastRun } from 'gulp'
+import {
+  src,
+  dest,
+  watch,
+  parallel,
+  series,
+  lastRun
+} from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 
 const $ = gulpLoadPlugins({
@@ -129,7 +136,7 @@ const cssPluginsList = [
 /**
  * icons settings
  */
-const iconFontName = 'myoriginal-icon'
+const iconFontName = 'original-icon'
 
 /**
  * htdocs init clean
@@ -173,7 +180,7 @@ export const devWatch = cb => {
   cb()
 }
 
-const onError = function(err) {
+const onError = function (err) {
   $.notify.onError({
     title: 'error',
     message: '<%= error.message %>'
@@ -187,24 +194,24 @@ const onError = function(err) {
  */
 export const scripts = () =>
   src(jsPaths.src)
-    .pipe(
-      $.plumber({
-        errorHandler: onError
-      })
+  .pipe(
+    $.plumber({
+      errorHandler: onError
+    })
+  )
+  .pipe($.sourcemaps.init())
+  .pipe($.babel())
+  .pipe(dest(jsPaths.srcGlob))
+  .pipe($.sourcemaps.write())
+  .pipe(dest(jsPaths.destGlob))
+  .pipe(
+    $.if(
+      env !== 'DEV',
+      dest(`${buildPath}${jsAssets}`),
+      dest(jsPaths.htdestGlob)
     )
-    .pipe($.sourcemaps.init())
-    .pipe($.babel())
-    .pipe(dest(jsPaths.srcGlob))
-    .pipe($.sourcemaps.write())
-    .pipe(dest(jsPaths.destGlob))
-    .pipe(
-      $.if(
-        env !== 'DEV',
-        dest(`${buildPath}${jsAssets}`),
-        dest(jsPaths.htdestGlob)
-      )
-    )
-    .pipe(browserSync.stream())
+  )
+  .pipe(browserSync.stream())
 
 /**
  * sass
@@ -261,49 +268,51 @@ const pugOptions = {
 }
 
 export const html = () =>
-  src(htmlPaths.src, { since: lastRun(html) })
-    .pipe(
-      $.plumber({
-        errorHandler: onError
-      })
-    )
-    .pipe(
-      $.changed(paths.dest, {
-        extension: '.html'
-      })
-    )
-    .pipe($.cached('pug'))
-    .pipe(
-      $.debug({
-        title: 'pug-debug-before'
-      })
-    )
-    .pipe(
-      $.pugInheritance({
-        basedir: htmlPaths.base,
-        skip: 'node_modules'
-      })
-    )
-    .pipe(
-      $.debug({
-        title: 'pug-debug-after'
-      })
-    )
-    .pipe(
-      $.filter(function(file) {
-        return !/\/_/.test(file.path) && !/^_/.test(file.relative)
-      })
-    )
-    .pipe($.pug(pugOptions))
-    .pipe($.if(env === 'DEV', $.replace('.min', '')))
-    .pipe($.if(env === 'DEV', $.replace(`${buildFolder}`, '')))
-    .pipe($.replace('target="_blank"', 'target="_blank" rel="noopener"')) // セキュリティ対策
-    .pipe($.if(env !== 'DEV', $.replace('<!-- ga-->', ga)))
-    // .pipe($.if(env !== 'DEV', $.replace('<!-- gtm-->', gtm)))
-    // .pipe($.if(env !== 'DEV', $.replace('<!-- ytm-->', ytm)))
-    .pipe($.replace('__NOCACHE__', Date.now()))
-    .pipe($.if(env !== 'DEV', dest(`${buildPath}`), dest(paths.htdocs)))
-    .pipe(browserSync.stream())
+  src(htmlPaths.src, {
+    since: lastRun(html)
+  })
+  .pipe(
+    $.plumber({
+      errorHandler: onError
+    })
+  )
+  .pipe(
+    $.changed(paths.dest, {
+      extension: '.html'
+    })
+  )
+  .pipe($.cached('pug'))
+  .pipe(
+    $.debug({
+      title: 'pug-debug-before'
+    })
+  )
+  .pipe(
+    $.pugInheritance({
+      basedir: htmlPaths.base,
+      skip: 'node_modules'
+    })
+  )
+  .pipe(
+    $.debug({
+      title: 'pug-debug-after'
+    })
+  )
+  .pipe(
+    $.filter(function (file) {
+      return !/\/_/.test(file.path) && !/^_/.test(file.relative)
+    })
+  )
+  .pipe($.pug(pugOptions))
+  .pipe($.if(env === 'DEV', $.replace('.min', '')))
+  .pipe($.if(env === 'DEV', $.replace(`${buildFolder}`, '')))
+  .pipe($.replace('target="_blank"', 'target="_blank" rel="noopener"')) // セキュリティ対策
+  .pipe($.if(env !== 'DEV', $.replace('<!-- ga-->', ga)))
+  // .pipe($.if(env !== 'DEV', $.replace('<!-- gtm-->', gtm)))
+  // .pipe($.if(env !== 'DEV', $.replace('<!-- ytm-->', ytm)))
+  .pipe($.replace('__NOCACHE__', Date.now()))
+  .pipe($.if(env !== 'DEV', dest(`${buildPath}`), dest(paths.htdocs)))
+  .pipe(browserSync.stream())
 
 const uglifyOptions = {
   compress: {
@@ -323,32 +332,32 @@ const renameTransform = {
  */
 export const jsMinify = () =>
   src(jsPaths.minSrc)
-    .pipe($.uglify(uglifyOptions))
-    .pipe($.rename(renameTransform))
-    .pipe(dest(jsPaths.destGlob))
-    .pipe(
-      $.if(
-        env !== 'DEV',
-        dest(`${buildPath}${jsAssets}`),
-        dest(jsPaths.htdestGlob)
-      )
+  .pipe($.uglify(uglifyOptions))
+  .pipe($.rename(renameTransform))
+  .pipe(dest(jsPaths.destGlob))
+  .pipe(
+    $.if(
+      env !== 'DEV',
+      dest(`${buildPath}${jsAssets}`),
+      dest(jsPaths.htdestGlob)
     )
+  )
 
 /**
  * CSS Minify
  */
 export const cssMinify = () =>
   src(cssPaths.minSrc)
-    .pipe($.cleanCSS())
-    .pipe($.rename(renameTransform))
-    .pipe(dest(cssPaths.destGlob))
-    .pipe(
-      $.if(
-        env !== 'DEV',
-        dest(`${buildPath}${cssAssets}`),
-        dest(cssPaths.htdestGlob)
-      )
+  .pipe($.cleanCSS())
+  .pipe($.rename(renameTransform))
+  .pipe(dest(cssPaths.destGlob))
+  .pipe(
+    $.if(
+      env !== 'DEV',
+      dest(`${buildPath}${cssAssets}`),
+      dest(cssPaths.htdestGlob)
     )
+  )
 
 /**
  * Images Minify
@@ -391,17 +400,17 @@ export const imageMinify = () => {
  */
 export const staticCopy = () =>
   src(staticSrc)
-    .pipe(dest(`${buildPath}/assets`))
-    .pipe(
-      $.if(
-        env !== 'DEV',
-        dest(`${buildPath}/assets`),
-        dest(`${paths.htdocs}`)
+  .pipe(dest(`${buildPath}/assets`))
+  .pipe(
+    $.if(
+      env !== 'DEV',
+      dest(`${buildPath}/assets`),
+      dest(`${paths.htdocs}`)
 
-        // dest(`${buildPath}`),
-        // dest(`${paths.dest}`)
-      )
+      // dest(`${buildPath}`),
+      // dest(`${paths.dest}`)
     )
+  )
 
 /**
  * dev cpy
@@ -444,11 +453,11 @@ export const iconfont = () => {
     .pipe($.iconfont(fontOptions))
 
   return iconStream
-    .on('glyphs', function(glyphs, options) {
+    .on('glyphs', function (glyphs, options) {
       const engine = 'lodash',
         className = 'icon'
 
-      glyphs = glyphs.map(function(glyph) {
+      glyphs = glyphs.map(function (glyph) {
         return {
           name: glyph.name,
           codepoint: glyph.unicode[0].charCodeAt(0).toString(16) // convert decimal to hex
@@ -508,6 +517,7 @@ export const iconfont = () => {
         )
         .pipe(dest(iconsPaths.srcGlob))
     })
+    .pipe(dest(`${buildPath}${iconsAssets}`))
     .pipe(
       $.if(
         env !== 'DEV',

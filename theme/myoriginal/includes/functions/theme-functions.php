@@ -4,15 +4,6 @@
 /*****************************************/
 
 /**
- * 開発者モードの判定
- */
-if (get_field('developer_mode', 'option')) {
-  define('MYORIGINAL_DEBUG', true);
-} else {
-  define('MYORIGINAL_DEBUG', false);
-}
-
-/**
  * 下記の設定をまとめてaster_setup_theme アクションフック
  */
 add_action('after_setup_theme', 'myoriginal_setup');
@@ -64,12 +55,9 @@ function myoriginal_styles()
 {
   wp_deregister_style('wp-block-library');
 
-  // 開発モードでは、非圧縮ファイルの読み込みでソースマップの確認
-  $suffix = (MYORIGINAL_DEBUG) ? '' : '.min';
-
   // main style
-  $v = date('YmdHis', filemtime(get_template_directory() . '/assets/css/styles' . $suffix . '.css'));
-  wp_register_style('myoriginal-style', MYORIGINAL_CSS_URL . '/styles' . $suffix . '.css', array(), $v, 'all');
+  $v = date('YmdHis', filemtime(get_template_directory() . '/assets/css/styles.min.css'));
+  wp_register_style('myoriginal-style', MYORIGINAL_CSS_URL . '/styles.min.css', array(), $v, 'all');
 
   wp_enqueue_style('myoriginal-style');
 }
@@ -91,16 +79,15 @@ function custom_style_tag($tag)
 /*******************************************/
 function myoriginal_scripts()
 {
-  $suffix = (MYORIGINAL_DEBUG) ? '' : '.min';
   $plugins = array(
     'jquery'
   );
 
-  $v = date('YmdHis', filemtime(get_template_directory() . '/assets/js/polyfill' . $suffix . '.js'));
-  wp_register_script('myoriginal-polyfill', MYORIGINAL_JS_URL . '/polyfill' . $suffix . '.js', array(), $v, false);
+  $v = date('YmdHis', filemtime(get_template_directory() . '/assets/js/polyfill.min.js'));
+  wp_register_script('myoriginal-polyfill', MYORIGINAL_JS_URL . '/polyfill.min.js', array(), $v, false);
 
-  $v = date('YmdHis', filemtime(get_template_directory() . '/assets/js/scripts' . $suffix . '.js'));
-  wp_register_script('myoriginal-scripts', MYORIGINAL_JS_URL . '/scripts' . $suffix . '.js', $plugins, $v, true);
+  $v = date('YmdHis', filemtime(get_template_directory() . '/assets/js/scripts.min.js'));
+  wp_register_script('myoriginal-scripts', MYORIGINAL_JS_URL . '/scripts.min.js', $plugins, $v, true);
 
   wp_enqueue_script('myoriginal-polyfill');
   wp_enqueue_script('myoriginal-scripts');
@@ -169,6 +156,11 @@ function extend_wp_head()
 @media screen and (max-width: 782px) {
   html { margin-top: 0 !important; }
   html #wpadminbar { display: none !important; }
+}
+@media screen and (min-width: 783px) {
+  .admin-bar header { top: 32px !important; }
+  .admin-bar .content-wrapper { padding-top: 118px; }
+  .admin-bar { margin-top: 32px !important; }
 }
 EOF;
   }

@@ -1,0 +1,23 @@
+/*
+  footer.scss
+-------------------------------------------------- */
+.footer {
+  background: $primary;
+  padding: 40px 0;
+  position: relative;
+  color: #fff;
+  text-align: center;
+
+  &__link {}
+
+  &__message {
+    font-size: 1.1rem;
+  }
+
+  &__copyright {
+    position: fixed;
+    left: -80px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+  }
+}

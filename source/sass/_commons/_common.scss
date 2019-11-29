@@ -168,8 +168,18 @@ h6 {
     top: 0;
     height: 100%;
     width: 1px;
-    background: $gray-200;
     z-index: -1;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 1px 8px;
+      background-image: linear-gradient(to bottom, $gray-200, $gray-200 3px, transparent 3px, transparent 8px),
+    }
 
     &.-line--01 {
       // left: 16.666%;
@@ -220,7 +230,7 @@ main {
 }
 
 section {
-  + section {
+  +section {
     margin-top: 120px;
 
     @include mq(md) {
@@ -244,7 +254,7 @@ section {
     }
 
     p {
-      + p {
+      +p {
         margin-top: 1.8em;
       }
     }

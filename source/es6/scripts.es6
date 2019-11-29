@@ -1,6 +1,6 @@
 const $ = jQuery.noConflict()
 
-$(function() {
+$(function () {
   // global
   const PC = 1040
   const BP = 768
@@ -18,7 +18,7 @@ $(function() {
   $window.on('load resize', getHeaderHeight)
   $('a[href^="#"]').on('click', smoothScroll)
 
-  $window.on('scroll resize', function() {
+  $window.on('scroll resize', function () {
     goTopFixedSide()
     goTopFixedLength()
   })
@@ -51,8 +51,7 @@ $(function() {
       href = $(this).attr('href'),
       target = $(href === '#' || href === '' ? 'html' : href),
       position = target.offset().top - height + 20
-    $('html, body').animate(
-      {
+    $('html, body').animate({
         scrollTop: position
       },
       speed,
@@ -134,57 +133,26 @@ $(function() {
     }
   }
 
-  /**
-   * common
-   * go top - side fix
-   */
+  // /**
+  //  * common
+  //  * go top - side fix
+  //  */
+  // function goTopFixedSide() {
+  //   const maxWidth = 1600
+  //   const windowWidth = $window.width()
 
-  function goTopFixedSide() {
-    const maxWidth = 1600
-    const windowWidth = $window.width()
-
-    if (windowWidth >= maxWidth) {
-      const contentWidth = windowWidth - maxWidth
-      const btnPositionSide = contentWidth / 2
-      $topBtn.css({
-        right: `${btnPositionSide}px`
-      })
-    } else {
-      $topBtn.css({
-        right: 15
-      })
-    }
-  }
-
-  /**
-   * common
-   * go top - fix length
-   */
-  function goTopFixedLength() {
-    const windowWidth = $window.width()
-
-    let scrollY = $(document).height()
-    let scrollP = $window.height() + $(window).scrollTop()
-    let footerH = $('.site-footer').innerHeight()
-    if (scrollY - scrollP <= footerH) {
-      if ($window.width() > BP) {
-        $topBtn.css({
-          position: 'absolute',
-          bottom: footerH - 30
-        })
-      } else {
-        $topBtn.css({
-          position: 'absolute',
-          bottom: footerH - 27
-        })
-      }
-    } else if (scrollY - scrollP > footerH) {
-      $topBtn.css({
-        position: 'fixed',
-        bottom: 15
-      })
-    }
-  }
+  //   if (windowWidth >= maxWidth) {
+  //     const contentWidth = windowWidth - maxWidth
+  //     const btnPositionSide = contentWidth / 2
+  //     $topBtn.css({
+  //       right: `${btnPositionSide}px`
+  //     })
+  //   } else {
+  //     $topBtn.css({
+  //       right: 15
+  //     })
+  //   }
+  // }
 
   /**
    * index
