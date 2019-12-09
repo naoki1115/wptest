@@ -6,6 +6,11 @@
 // bootstrap
 //
 @import 'node_modules/bootstrap/scss/functions';
+$grid-breakpoints: (xs: 0,
+  sm: 581px,
+  md: 769px,
+  lg: 992px,
+  xl: 1200px);
 @import 'node_modules/bootstrap/scss/variables';
 @import 'node_modules/bootstrap/scss/mixins';
 @import 'node_modules/bootstrap/scss/grid';

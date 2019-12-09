@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="col-md-6 col-12 home__about__content__figure">
-        <figure class="shadow-bg-container"><img src="<?php echo get_template_directory_uri();?>a/assets/img/index/aboutme.jpg"></figure>
+        <figure class="shadow-bg-container"><img src="/assets/img/index/aboutme.jpg"></figure>
       </div>
     </div><!-- / .home__about__content -->
 

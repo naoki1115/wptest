@@ -9,7 +9,7 @@ function get_carrer_content()
     'orderby' => '',
     'posts_per_page' => -1,
     'post_status' => 'publish'
-  )
+  );
 }
 ?>
 
@@ -20,6 +20,15 @@ function get_carrer_content()
       <span class="jp">経歴</span>
     </span>
   </h3>
+
+  <?php if (have_rows('carrer')): ?>
+    <?php while (have_rows('carrer')): the_rows(); ?>
+
+      <?php echo 'りんご'; ?>
+
+    <?php endwhile; ?>
+  <?php endif; ?>
+
   <div class="carrer__content">
 
   </div><!-- / .carrer__content -->

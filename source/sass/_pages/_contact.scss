@@ -1,0 +1,61 @@
+/*
+  about.scss
+-------------------------------------------------- */
+
+//
+// form
+//
+input.form-control {
+  height: 54px;
+}
+
+input.form-control,
+textarea.form-control {
+  background: #fff;
+  padding: 4px 12px;
+  font-size: 1.6rem;
+}
+
+.contact-form__items {
+  &__row {
+    $and: &;
+
+    @include mq(lg-min) {
+      @include dflex;
+    }
+
+    +#{$and} {
+      margin-top: 40px;
+    }
+
+    dt {
+      height: 100%;
+      font-weight: $bold;
+
+      @include mq(lg-min) {
+        @include flexChild(25%);
+        padding-right: 20px;
+        padding-top: 12px;
+      }
+
+      @include mq(lg) {
+        margin-bottom: 10px;
+      }
+
+      .tag {
+        color: #fff;
+        background: #ff4500;
+        font-weight: $bold;
+        height: 100%;
+        margin-left: 1.2em;
+        padding: .25em 6px;
+      }
+    }
+
+    dd {
+      @include mq(lg-min) {
+        @include flexCalc(25%);
+      }
+    }
+  }
+}

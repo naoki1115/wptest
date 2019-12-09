@@ -17,15 +17,16 @@ function work_case_navigation($terms)
     echo '<aside class="works__category-nav__wrapper col-md-3 col-12">';
     echo '<nav class="works__category-nav"><ul class="works__category-nav__list">';
 
-    // foreach ($terms as $term) {
-    //   printf(
-    //     '<li class="works__category-nav__item">
-    //       <a href="/works/%1$s">
-    //         <span class="category"></span>
-    //       </a>
-    //     </li>'
-    //   );
-    // }
+    foreach ($terms as $term) {
+      printf(
+        '<li class="works__category-nav__item">
+          <a href="/works/%1$s">
+            <span class="category">%2$s</span>
+          </a>
+        </li>',
+        $term->slug, $term->name
+      );
+    }
 
     echo '</ul></nav>';
     echo '</aside>';

@@ -1,0 +1,75 @@
+extends /_includes/_layout.pug
+
+block head_meta
+  title #{baseTitle}
+  meta(name='description' content=baseDescription)
+
+block prepend css
+//- CSSを最後に追加する場合は block append css
+//- CSSをパスを変更する場合は block css
+
+block prepend head_script
+
+block content
+  - var imgSrc = `${imgPath}/contact`
+
+  header.header#siteHeader
+    include /_includes/_header
+
+  main.page-child.page-contact
+    .page-ttl-head
+      h2
+        span.en CONTACT
+        span.jp お問い合わせ
+
+    article.content-wrapper
+      .content-inner
+        .contact-form__wrapper
+          form.contact-form
+            p.contact-form__lead 内容を確認出来次第、お返事いたします。
+            .contact-form__items
+              dl.contact-form__items__row
+                dt お名前
+                  span.tag 必須
+                dd
+                  input.form-control(type="text" placeholder="")
+
+              dl.contact-form__items__row
+                dt 会社名
+                  span.tag 必須
+                dd
+                  input.form-control(type="text" placeholder="")
+
+              dl.contact-form__items__row
+                dt 電話番号
+                  span.tag 必須
+                dd
+                  input.form-control(type="tel" placeholder="")
+
+              dl.contact-form__items__row
+                dt メールアドレス
+                  span.tag 必須
+                dd
+                  input.form-control(type="email" placeholder="")
+
+              dl.contact-form__items__row
+                dt 内容
+                dd
+                  input.form-control(type="text" placeholder="")
+
+              dl.contact-form__items__row
+                dt 詳細
+                dd
+                  textarea.form-control(rows="6" placeholder="")
+
+            .contact-form__button
+
+
+  //- footer
+  .footer-wrapper#footerWrapper
+    include /_includes/_footer
+
+block append script
+//- JSを最後に追加する場合は block append script
+//- JSのパスを変更する場合は block script
+

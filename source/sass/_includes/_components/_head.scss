@@ -31,16 +31,16 @@
     }
   }
 
-  &:after {
-    content: '';
-    height: 100%;
-    width: 100%;
-    background: $primary;
-    position: absolute;
-    transform: translateX(-100%);
-    transition: .3s all;
-    z-index: 1;
-  }
+  // &:after {
+  //   content: '';
+  //   height: 100%;
+  //   width: 100%;
+  //   background: $primary;
+  //   position: absolute;
+  //   transform: translateX(-100%);
+  //   transition: .3s all;
+  //   z-index: 1;
+  // }
 
   span {
     display: block;
