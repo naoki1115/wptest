@@ -1,0 +1,49 @@
+/*
+  button.scss
+-------------------------------------------------- */
+.btn-container {
+  max-width: 300px;
+}
+
+.btn {
+  min-height: 64px;
+  @include flexCenter;
+  padding: 8px 12px;
+  font-size: 1.4rem;
+  font-weight: $bold;
+  position: relative;
+  margin-left: 30px;
+
+  &:before {
+    content: '';
+    width: 60px;
+    height: 1px;
+    position: absolute;
+    left: -30px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+  }
+}
+
+@mixin btn-variation($color, $sub) {
+  color: $color;
+  background: $sub;
+  border: solid 1px $color;
+
+  &:before {
+    background: $color;
+  }
+
+  &:hover {
+    @include mq(md-min) {
+      color: $sub;
+      background: $primary;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, .2);
+    }
+  }
+}
+
+.btn--primary {
+  @include btn-variation($primary, #fff);
+}

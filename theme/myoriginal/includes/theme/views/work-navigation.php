@@ -17,6 +17,12 @@ function work_case_navigation($terms)
     echo '<aside class="works__category-nav__wrapper col-md-3 col-12">';
     echo '<nav class="works__category-nav"><ul class="works__category-nav__list">';
 
+    echo '
+      <li class="works__category-nave__item">
+        <a href="/works/">全ての実績</a>
+      </li>
+    ';
+
     foreach ($terms as $term) {
       printf(
         '<li class="works__category-nav__item">

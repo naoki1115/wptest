@@ -58,7 +58,7 @@
   }
 
   &__info {
-    .info-inner {
+    .info__inner {
       @include mq(sm-min) {
         padding: 0 32px 0 16px;
       }
@@ -99,7 +99,8 @@
 //
 // career
 //
-.career-content {
+.career-detail {
+
   // layout
   .career__item:nth-child(even) & {
     @include mq(md-min) {
@@ -220,6 +221,7 @@
     }
 
     .info-content {
+
       // layout
       .career__item:nth-child(odd) & {
         @include mq(md-min) {

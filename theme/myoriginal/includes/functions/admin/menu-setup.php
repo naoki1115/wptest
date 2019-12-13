@@ -59,7 +59,7 @@ function myoriginal_custom_menu_order($menu_ord)
     'index.php', // ダッシュボード
     'separator1', // 区切り線1
     'edit.php?post_type=work', // 実績カスタム投稿
-    'edit.php?post_type=carrer', // 経歴カスタム投稿
+    'edit.php?post_type=career', // 経歴カスタム投稿
     'edit.php?post_type=page', // 固定ページ
     'separator2', // 区切り線2
     'upload.php', // メディア
@@ -92,7 +92,7 @@ function myoriginal_dashbord_icons()
   ?>
     <style>
     #menu-posts-work .dashicons-admin-post:before { content: '\f330' !important; }
-    #menu-posts-carrer .dashicons-admin-post:before { content: '\f483' !important; }
+    #menu-posts-career .dashicons-admin-post:before { content: '\f483' !important; }
     </style>
   <?php
 }
@@ -104,7 +104,7 @@ add_action('init', 'myoriginal_remove_post_support');
 function myoriginal_remove_post_support()
 {
   remove_post_type_support(MYORIGINAL_WORK, 'editor');
-  remove_post_type_support(MYORIGINAL_CARRER, 'editor');
+  remove_post_type_support(MYORIGINAL_CAREER, 'editor');
 }
 
 /**

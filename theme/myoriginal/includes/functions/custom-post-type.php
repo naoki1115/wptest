@@ -32,7 +32,7 @@ function myoriginal_register_custom_posts() {
 
   // 経歴
   register_post_type(
-    MYORIGINAL_CARRER,
+    MYORIGINAL_CAREER,
     array(
       'labels' => array(
         'name' => __('経歴'),

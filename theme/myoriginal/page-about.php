@@ -3,6 +3,60 @@
 ## theme page-about.php
 /******************************************/
 get_header();
+
+/**
+ * 使用できるツール
+ *
+ * @param array $args ツールのリスト
+ */
+function useTools($args)
+{
+  $html = '';
+  if (!empty($args)) {
+    $html .= '<ul class="skills__tool row -inline">';
+
+    foreach ($args as $key => $data) {
+      $html .= '<li>';
+      $html .= '<img src="' . MYORIGINAL_IMG_URL . '/about/' . $data['img'] . '"' . 'alt="' . $data['alt'] . '">';
+      $html .= '</li>';
+    }
+
+    $html .= '</ul>';
+  }
+
+  return $html;
+}
+
+/**
+ * できること
+ *
+ * @param array $args スキルのリスト
+ */
+function mySKills($args) {
+  $html = '';
+  if (!empty($args)) {
+    $html .= '<ul class="skills__ability__list row">';
+
+    foreach ($args as $key => $data) {
+      $html .= '<li class="col-md-6 col-12 row"><div class="skills__ability__figure col-sm-6 col-12">';
+      $html .= '<figure>';
+      $html .= '<img src="' . MYORIGINAL_IMG_URL . '/about/' . $data['img'] . '">';
+      $html .= '</figure>';
+      $html .= '<span class="ability-number t-serif t-italic">' . $data['number'] . '</span>';
+      $html .= '</div>';
+
+      $html .= '<div class="skills__ability__info col-md-6 col-12"><div class="info__inner"">';
+      $html .= '<h5>' . $data['ttl'] . '</h5>';
+      $html .= '<p>' . $data['txt'] . '</p>';
+      $html .= '</div></div>';
+
+      $html .= '</li>';
+    }
+
+    $html .= '</ul>';
+  }
+  return $html;
+}
 ?>
 
 <main class="<?php get_page_main_class();?>">
@@ -34,7 +88,7 @@ get_header();
           </div>
           <div class="col-md-3 col-12">
             <figure class="profile__figure shadow-bg-container">
-              <img src="/assets/img/about/profile_face.jpg">
+              <img src="<?php echo DIR; ?>/assets/img/about/profile_face.jpg">
             </figure>
           </div>
         </div><!-- / .profile__content -->
@@ -52,36 +106,24 @@ get_header();
           <h4 class="ttl--border">できること</h4>
 
           <div class="skills__ability">
-            <ul class="skills__ability__list row">
-              <li class="col-md-6 col-12 row">
-                <div class="skills__ability__figure col-sm-6 col-12">
-                  <figure>
-                    <img src="/assets/img/about/skills_design.jpg">
-                  </figure>
-                  <span class="ability-number t-serif t-italic">01</span>
-                </div>
-                <div class="skills__ability__info">
-                  <div class="info__inner">
-                    <h5>Web Design</h5>
-                    <p>見た目と機能性を兼ね備え、ユーザー目線を忘れず使いやすいWebデザインをご提案します。</p>
-                  </div>
-                </div>
-              </li>
-              <li class="col-md-6 col-12 row">
-                <div class="skills__ability__figure col-sm-6 col-12">
-                  <figure>
-                    <img src="/assets/img/about/skills_cording.jpg">
-                  </figure>
-                  <span class="ability-number t-serif t-italic">02</span>
-                </div>
-                <div class="skills__ability__info">
-                  <div class="info__inner">
-                    <h5>Coding</h5>
-                    <p>HTML、CSS、jQueryなどを使い、育てやすいサイトを作ることを意識してコーディングします。</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
+<?php
+$args = array(
+  'design' => array(
+    'number' => '01',
+    'img' => 'skills_design.jpg',
+    'ttl' => 'Web Design',
+    'txt' => '見た目と機能性を兼ね備え、ユーザー目線を忘れず使いやすいWebデザインをご提案します。'
+  ),
+  'coding' => array(
+    'number' => '02',
+    'img' => 'skills_coding.jpg',
+    'ttl' => 'Coding',
+    'txt' => 'HTML、CSS、jQueryなどを使い、育てやすいサイトを作ることを意識してコーディングします。'
+  ),
+);
+echo mySKills($args);
+?>
+
           </div><!-- / .skills__ability -->
           <div class="skills__strength bg-container">
             <p>わたしの強みは、デザインとコーディングの兼任ができることです。</p>
@@ -92,20 +134,45 @@ get_header();
 
         <div class="skills__content">
           <h4 class="ttl--border">使用ツール</h4>
-          <ul class="skills__tool row -inline">
-            <li><img src="/assets/img/about/logo_xd.png" alt="xd"></li>
-            <li><img src="/assets/img/about/logo_ps.png" alt="photoshop"></li>
-            <li><img src="/assets/img/about/logo_ai.png" alt="illustrator"></li>
-            <li><img src="/assets/img/about/logo_vsc.png" alt="visual studio code"></li>
-            <li><img src="/assets/img/about/logo_git.png" alt="git"></li>
-            <li><img src="/assets/img/about/logo_npm.png" alt="npm"></li>
-            <li><img src="/assets/img/about/logo_gulp.png" alt="gulp"></li>
-            <li><img src="/assets/img/about/logo_wp.png" alt="wordpress"></li>
-          </ul>
+
+<?php
+$tools = array(
+  'xd' => array(
+    'img' => 'logo_xd.png',
+    'alt' => 'xd'
+  ),
+  'photoshop' => array(
+    'img' => 'logo_ps.png',
+    'alt' => 'photoshop'
+  ),
+  'illustrator' => array(
+    'img' => 'logo_ai.png',
+    'alt' => 'illustrator'
+  ),
+  'vscode' => array(
+    'img' => 'logo_vsc.png',
+    'alt' => 'vscode'
+  ),
+  'git' => array(
+    'img' => 'logo_git.png',
+    'alt' => 'git'
+  ),
+  'npm' => array(
+    'img' => 'logo_npm.png',
+    'alt' => 'npm'
+  ),
+  'wp' => array(
+    'img' => 'logo_wp.png',
+    'alt' => 'wordpress'
+  ),
+);
+echo useTools($tools);
+?>
+
         </div><!-- / .skills__content -->
       </section>
 
-      <?php get_template_part('includes/theme/views/about', 'carrer');?>
+      <?php get_template_part('includes/theme/views/about', 'career');?>
 
     </div><!-- / .content-inner -->
   </article>

@@ -2217,6 +2217,46 @@ section + section {
 }
 
 /*
+  button.scss
+-------------------------------------------------- */
+.btn-container {
+  max-width: 300px;
+}
+
+.btn {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  position: relative;
+  margin-left: 30px;
+}
+
+.btn:before {
+  content: '';
+  width: 60px;
+  height: 1px;
+  position: absolute;
+  left: -30px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+.btn--primary {
+  color: #333;
+  background: #fff;
+  border: solid 1px #333;
+}
+
+.btn--primary:before {
+  background: #333;
+}
+
+/*
   components.scss
 -------------------------------------------------- */
 .site-overlay {
@@ -2624,37 +2664,37 @@ section + section {
   width: 40px;
 }
 
-.career-content__year {
+.career-detail__year {
   font-size: 5rem;
   font-weight: bold;
   flex: 0 0 50%;
   max-width: 50%;
 }
 
-.career-content__year span.year {
+.career-detail__year span.year {
   line-height: 1;
 }
 
-.career-content__year span.new {
+.career-detail__year span.new {
   font-size: 2.4rem;
   color: #a0a0a0;
   padding-top: 8px;
 }
 
-.career-content__info {
+.career-detail__info {
   flex: 0 0 50%;
   max-width: 50%;
   position: relative;
   padding: 10px 0 80px;
 }
 
-.career-content__info .info-line {
+.career-detail__info .info-line {
   position: absolute;
   top: 14px;
   height: 100%;
 }
 
-.career-content__info .info-line:after {
+.career-detail__info .info-line:after {
   content: '';
   position: absolute;
   top: 0;
@@ -2667,12 +2707,12 @@ section + section {
   z-index: -1;
 }
 
-.career-content__info .info-line .info-icon {
+.career-detail__info .info-line .info-icon {
   font-size: 2.5rem;
   background: #fff;
 }
 
-.career-content__info .info-content h6 {
+.career-detail__info .info-content h6 {
   font-size: 2rem;
   margin-bottom: 10px;
 }
@@ -2963,7 +3003,7 @@ textarea.form-control {
   .ttl--line-side span.ja {
     padding-left: 1.3em;
   }
-  .skills__ability__info .info-inner {
+  .skills__ability__info .info__inner {
     padding: 0 32px 0 16px;
   }
   .home__works-link__wrapper .works-link__item:nth-child(n + 5) {
@@ -2997,6 +3037,11 @@ textarea.form-control {
   .t-link-underline:hover {
     text-decoration: none;
   }
+  .btn--primary:hover {
+    color: #fff;
+    background: #333;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  }
   .header-info {
     display: flex;
     flex-wrap: wrap;
@@ -3011,38 +3056,38 @@ textarea.form-control {
   .header-info__nav__list li + li {
     margin-left: 50px;
   }
-  .career__item:nth-child(even) .career-content {
+  .career__item:nth-child(even) .career-detail {
     flex-direction: row-reverse;
   }
-  .career-content__year {
+  .career-detail__year {
     display: flex;
     flex-wrap: wrap;
   }
-  .career__item:nth-child(odd) .career-content__year {
+  .career__item:nth-child(odd) .career-detail__year {
     flex-direction: row-reverse;
   }
-  .career__item:nth-child(odd) .career-content__year .year {
+  .career__item:nth-child(odd) .career-detail__year .year {
     padding-right: 50px;
   }
-  .career__item:nth-child(odd) .career-content__year .new {
+  .career__item:nth-child(odd) .career-detail__year .new {
     padding-right: 0.8em;
   }
-  .career__item:nth-child(even) .career-content__year .year {
+  .career__item:nth-child(even) .career-detail__year .year {
     padding-left: 50px;
   }
-  .career__item:nth-child(even) .career-content__year .new {
+  .career__item:nth-child(even) .career-detail__year .new {
     padding-left: 0.8em;
   }
-  .career__item:nth-child(odd) .career-content__info .info-line {
+  .career__item:nth-child(odd) .career-detail__info .info-line {
     left: -13px;
   }
-  .career__item:nth-child(even) .career-content__info .info-line {
+  .career__item:nth-child(even) .career-detail__info .info-line {
     right: -12px;
   }
-  .career__item:nth-child(odd) .career-content__info .info-content {
+  .career__item:nth-child(odd) .career-detail__info .info-content {
     padding-left: 50px;
   }
-  .career__item:nth-child(even) .career-content__info .info-content {
+  .career__item:nth-child(even) .career-detail__info .info-content {
     padding-right: 50px;
   }
   .works__category-nav__item a:after {
@@ -3282,12 +3327,12 @@ textarea.form-control {
     position: relative;
     z-index: 10;
   }
-  .career-content__year {
+  .career-detail__year {
     font-size: 3rem;
     flex: 0 0 4em;
     max-width: 4em;
   }
-  .career-content__info {
+  .career-detail__info {
     flex: 0 0 calc(100% - 4em);
     flex-basis: calc(100% - 4em);
     max-width: calc(100% - 4em);
@@ -3348,7 +3393,7 @@ textarea.form-control {
   .page-ttl-head h2 span.en {
     font-size: 4rem;
   }
-  .career-content__year {
+  .career-detail__year {
     font-size: 2.4rem;
   }
   .mv__ttl {

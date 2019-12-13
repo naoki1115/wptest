@@ -9,15 +9,17 @@
 /*********************************************************/
 ## MYORIGINAL theme define
 /**********************************************************/
+define('DIR', get_template_directory_uri());
+
 define('MYORIGINAL_INC_DIR', get_template_directory() . '/includes');
 
-define('MYORIGINAL_CSS_URL', get_template_directory_uri() . '/assets/css');
-define('MYORIGINAL_JS_URL', get_template_directory_uri() . '/assets/js');
-define('MYORIGINAL_IMG_URL', get_template_directory_uri() . '/assets/img');
+define('MYORIGINAL_CSS_URL', DIR . '/assets/css');
+define('MYORIGINAL_JS_URL', DIR . '/assets/js');
+define('MYORIGINAL_IMG_URL', DIR . '/assets/img');
 
 // custom post type
 define('MYORIGINAL_WORK', 'work');
-define('MYORIGINAL_CARRER', 'carrer');
+define('MYORIGINAL_CAREER', 'career');
 
 // caustom taxonomy
 define('MYORIGINAL_WORK_CASE', 'case');
