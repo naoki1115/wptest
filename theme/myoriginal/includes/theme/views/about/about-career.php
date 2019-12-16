@@ -53,13 +53,12 @@ function get_career_content($id, $number)
 
 <?php
 $args = array(
-  'post_type' => 'career',
+  'post_type' => MYORIGINAL_CAREER,
   'orderby' => 'id',
   'order' => 'ASC',
   'post_per_page' => -1,
   'post_status' => 'publish'
 );
-
 $career_query = new WP_Query($args);
 
 if ($career_query->have_posts()) {

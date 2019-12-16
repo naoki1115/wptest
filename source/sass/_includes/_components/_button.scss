@@ -5,6 +5,24 @@
   max-width: 300px;
 }
 
+@mixin btn-variation($color, $sub) {
+  color: $color;
+  background: $sub;
+  border: solid 1px $color;
+
+  &:before {
+    background: $color;
+  }
+
+  &:hover {
+    @include mq(md-min) {
+      color: $sub;
+      background: $primary;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
 .btn {
   min-height: 64px;
   @include flexCenter;
@@ -24,26 +42,9 @@
     bottom: 0;
     margin: auto 0;
   }
-}
 
-@mixin btn-variation($color, $sub) {
-  color: $color;
-  background: $sub;
-  border: solid 1px $color;
-
-  &:before {
-    background: $color;
+  // variations
+  &-primary {
+    @include btn-variation($primary, #fff);
   }
-
-  &:hover {
-    @include mq(md-min) {
-      color: $sub;
-      background: $primary;
-      box-shadow: 10px 10px 10px rgba(0, 0, 0, .2);
-    }
-  }
-}
-
-.btn--primary {
-  @include btn-variation($primary, #fff);
 }

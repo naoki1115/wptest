@@ -20,7 +20,7 @@ get_header();
       </h3>
 
       <div class="works__content row -reverse">
-        <?php get_template_part('includes/theme/views/work', 'navigation'); ?>
+        <?php get_template_part('includes/theme/views/works/work', 'navigation'); ?>
       </div>
 
     </div>

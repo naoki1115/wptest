@@ -2246,13 +2246,13 @@ section + section {
   margin: auto 0;
 }
 
-.btn--primary {
+.btn-primary {
   color: #333;
   background: #fff;
   border: solid 1px #333;
 }
 
-.btn--primary:before {
+.btn-primary:before {
   background: #333;
 }
 
@@ -3037,7 +3037,7 @@ textarea.form-control {
   .t-link-underline:hover {
     text-decoration: none;
   }
-  .btn--primary:hover {
+  .btn-primary:hover {
     color: #fff;
     background: #333;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);

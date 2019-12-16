@@ -172,7 +172,7 @@ echo useTools($tools);
         </div><!-- / .skills__content -->
       </section>
 
-      <?php get_template_part('includes/theme/views/about', 'career');?>
+      <?php get_template_part('includes/theme/views/about/about', 'career');?>
 
     </div><!-- / .content-inner -->
   </article>

@@ -1,13 +1,12 @@
 <?php
 /******************************************/
-## theme index.php
+## theme taxonomy-work.php
+## post_type => work
 /******************************************/
 get_header();
 ?>
 
-<main class="<?php get_page_main_class();?>">
-<?php the_content(); ?>
-</main>
+
 
 <?php
 get_footer();

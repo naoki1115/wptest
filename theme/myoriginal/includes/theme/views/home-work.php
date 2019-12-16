@@ -9,19 +9,36 @@
 
 <?php
 $args = array(
-  'post_type' => MYORIGINAL_WORK, // 投稿タイプ
-  'orderby' => 'rand', // 表示順
-  'posts_per_page' => 8, // x個表示する
-  'post_status' => 'publish' // 記事の公開ステータス
+  'post_type' => MYORIGINAL_WORK,
+  'orderby' => 'rand',
+  'order' => 'desc',
+  'post_per_page' => 6,
+  'post_status' => 'publish'
 );
+$works_query = new WP_Query($args);
 
-$query = new WP_Query($args);
+if ($works_query->have_posts()) {
+  // 公開サれている記事の数を取得
+  $count = wp_count_posts();
+  $work_posts = $count->publish;
 
-if ($query->hve_posts()) {
-  while ($query->have_posts()) {
-    $query-> the_post();
+  echo '<div class="home__works-link__wrapper"><ul class="works-link__list row -inline">';
+  while ($works_query->have_posts()) {
+    $works_query->the_post();
+
+    echo get_template_part('includes/theme/views/work/work', 'link');
   }
+  echo '</ul>';
+
+  if ($wrok_posts > 6) {
+    echo '<div class="btn-container">';
+    echo '<a class="btn -primary" href="' . home_url('/works') . '">view more</a>';
+    echo '</div>';
+  }
+
+  echo '</div>'; // END home__works-link__wrapper
 }
+wp_reset_postdata();
 ?>
 
   </div><!-- / .content__onner -->
