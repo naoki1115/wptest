@@ -5,19 +5,22 @@
 /******************************************/
 get_header();
 
+/**
+ * ????????
+ */
 function get_work_info()
 {
   $contents = array(
     'client' => array(
-      'ttl' => 'クライアント',
+      'ttl' => '??????',
       'field' => 'client',
     ),
     'year' => array(
-      'ttl' => '制作年',
+      'ttl' => '???',
       'field' => 'year',
     ),
     'purpose' => array(
-      'ttl' => '制作目的',
+      'ttl' => '????',
       'field' => 'purpose',
     ),
     'url' => array(
@@ -25,7 +28,7 @@ function get_work_info()
       'field' => 'url',
     ),
     'time' => array(
-      'ttl' => '制作期間',
+      'ttl' => '????',
       'field' => 'time'
     )
   );
@@ -52,14 +55,17 @@ function get_work_info()
   return $html;
 }
 
+/**
+ * ????????
+ */
 function get_work_detail() {
   $contents = array(
     'part' => array(
-      'ttl' => '担当範囲',
+      'ttl' => '????',
       'field' => 'part'
     ),
     'tool' => array(
-      'ttl' => '使用ツール',
+      'ttl' => '?????',
       'field' => 'tool'
     )
   );
@@ -82,7 +88,20 @@ function get_work_detail() {
   return $html;
 }
 
+/**
+ * ????????
+ */
 function get_work_comment()
+{
+  $html = '';
+
+  return $html;
+}
+
+/**
+ * ??????????
+ */
+function get_work_design()
 {
   $html = '';
 
@@ -94,7 +113,7 @@ function get_work_comment()
   <div class="page-ttl-head">
     <h2>
       <span class="en">Works</span>
-      <span class="jp">制作実績</span>
+      <span class="jp">????</span>
     </h2>
   </div>
 
@@ -113,7 +132,10 @@ function get_work_comment()
           <?php echo get_work_detail(); ?>
           </div>
 
-        </div>
+          <?php get_template_part('includes/theme/views/work/work', 'related');?>
+
+        </div><!-- / .works-detail__wrapper -->
+
         <?php get_template_part('includes/theme/views/work/work', 'navigation');?>
       </div>
 

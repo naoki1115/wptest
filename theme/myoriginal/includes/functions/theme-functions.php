@@ -148,7 +148,7 @@ function extend_wp_head()
   if (is_user_logged_in()) {
     $inline_css .= <<< EOF
 #wpadminbar {
-  background: #0f3c81;
+  background: #F4A460;
 }
 #wp-admin-bar-new-post {
   display:none;
@@ -179,10 +179,10 @@ function extend_admin_head()
   if (is_user_logged_in()) {
     $inline_css .= <<< EOF
 #adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap {
-  background: #0f3c81;
+  background: #F4A460;
   }
 #wpadminbar {
-  background: #0f3c81;
+  background: #F4A460;
   }
 #adminmenu .wp-has-current-submenu .wp-submenu, #adminmenu .wp-has-current-submenu .wp-submenu.sub-open, #adminmenu .wp-has-current-submenu.opensub .wp-submenu, #adminmenu a.wp-has-current-submenu:focus+.wp-submenu, .no-js li.wp-has-current-submenu:hover .wp-submenu {
   background: rgba(255,255,255, .1);
