@@ -11,6 +11,7 @@
  */
 $works_case = get_terms(MYORIGINAL_WORK_CASE);
 
+work_case_navigation($works_case);
 function work_case_navigation($terms)
 {
   if ($terms) {
@@ -18,7 +19,7 @@ function work_case_navigation($terms)
     echo '<nav class="works__category-nav"><ul class="works__category-nav__list">';
 
     echo '
-      <li class="works__category-nave__item">
+      <li class="works__category-nav__item">
         <a href="/works/">全ての実績</a>
       </li>
     ';

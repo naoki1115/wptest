@@ -10,7 +10,7 @@ if (is_home()) {
 
 function get_work_link($pc, $md, $sm)
 {
-  printf('<li class="work-link__item col-md-%$1s col-sm-%$2s col-%$3s">', $pc, $md, $sm);
+  printf('<li class="work-link__item col-md-%1$s col-sm-%2$s col-%3$s">', $pc, $md, $sm);
   echo '<a href="' . get_permalink() . '">';
   echo get_work_link_thumbnail();
   echo get_work_link_info();
