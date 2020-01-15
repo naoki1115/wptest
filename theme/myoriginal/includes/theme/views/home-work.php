@@ -25,8 +25,7 @@ if ($works_query->have_posts()) {
   echo '<div class="home__works-link__wrapper"><ul class="works-link__list row -inline">';
   while ($works_query->have_posts()) {
     $works_query->the_post();
-
-    echo get_template_part('includes/theme/views/work/work', 'link');
+    echo get_work_link(3, 6, 12);
   }
   echo '</ul>';
 

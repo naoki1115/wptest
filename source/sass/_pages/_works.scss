@@ -8,12 +8,11 @@
 //
 // nav
 //
-.works__category-nav__wrapper {
-}
+.works__category-nav__wrapper {}
 
 .works__category-nav {
   &__item {
-    + li {
+    +li {
       margin-top: 14px;
     }
 
@@ -93,6 +92,24 @@
 /*
   works - detail
 -------------------------------------------------- */
+.works-detail__info__device {
+  margin-bottom: 40px;
+  background: #f7f7f7;
+  padding: 30px 40px;
+}
+
+.works-detail__info__point {
+  margin-bottom: 80px;
+
+  h5 {}
+
+  p {
+    +h5 {
+      padding-top: 2.4em;
+    }
+  }
+}
+
 .works-detail__info__content {
   margin-bottom: 60px;
 
@@ -101,7 +118,7 @@
       @include dflex;
     }
 
-    + dl {
+    +dl {
       margin-top: 50px;
     }
 
@@ -118,10 +135,10 @@
   }
 }
 
-.works-detail__design {
+.works-detail__info__design {
   $this: &;
 
-  + #{$this} {
+  +#{$this} {
     margin-top: 80px;
   }
 

@@ -37,11 +37,11 @@
  */
 function get_work_link_thumbnail($before = '', $after = '', $id = 0, $size = 'full')
 {
-  if (has_post_thumbnail($id)) {
-    $html = '<div class="work-link__thumbnail">';
-    $html .= get_the_post_thumbnail($id, $size);
-    $html .= '</div>';
-  }
+  $html = '<div class="works-link__thumbnail">';
+  $html .= get_the_post_thumbnail($id, $size);
+  $html .= '</div>';
+
+  return $html;
 }
 
 /**
@@ -52,11 +52,29 @@ function get_work_link_thumbnail($before = '', $after = '', $id = 0, $size = 'fu
  */
 function get_work_link_info($id = 0)
 {
-  if ($post) {
-    $html = '<div class="work-link__info">';
-    $html .= '<span class="info-company">' . get_field('client', $id) . '</span>';
-    $html .= '<h4 class="info-ttl">' . get_title($id) . '</h4>';
-    $html .= '</div>';
-  }
+  $html = '<div class="works-link__info">';
+  $html .= '<span class="info-company">' . get_field('client', $id) . '</span>';
+  $html .= '<h4 class="info-ttl">' . get_the_title($id) . '</h4>';
+  $html .= '</div>';
+
+  return $html;
 }
+
+
+/**
+ * work リンクコンテンツ出力
+ *
+ * @param int $pc, $md, $sm bootstrap col
+ */
+function get_work_link($pc, $md, $sm)
+{
+  $html = sprintf('<li class="works-link__item col-md-%1$s col-sm-%2$s col-%3$s">', $pc, $md, $sm);
+  $html .= '<a href="' . get_permalink() . '">';
+  $html .= get_work_link_thumbnail(get_the_ID());
+  $html .= get_work_link_info();
+  $html .= '</a></li>';
+
+  return $html;
+}
+
 

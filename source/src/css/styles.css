@@ -271,6 +271,7 @@ img {
   font-size: 0;
   line-height: 0;
   width: 100%;
+  height: auto;
 }
 
 *,
@@ -2372,7 +2373,7 @@ section + section {
   font-size: 1.8rem;
   padding-bottom: 2px;
   border-bottom: solid 1px #a0a0a0;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .page-ttl-head {
@@ -2948,6 +2949,20 @@ textarea.form-control {
 /*
   works - detail
 -------------------------------------------------- */
+.works-detail__info__device {
+  margin-bottom: 40px;
+  background: #f7f7f7;
+  padding: 30px 40px;
+}
+
+.works-detail__info__point {
+  margin-bottom: 80px;
+}
+
+.works-detail__info__point p + h5 {
+  padding-top: 2.4em;
+}
+
 .works-detail__info__content {
   margin-bottom: 60px;
 }
@@ -2965,11 +2980,11 @@ textarea.form-control {
   margin-bottom: 24px;
 }
 
-.works-detail__design + .works-detail__design {
+.works-detail__info__design + .works-detail__info__design {
   margin-top: 80px;
 }
 
-.works-detail__design__visual li img {
+.works-detail__info__design__visual li img {
   border: solid 1px #a0a0a0;
 }
 

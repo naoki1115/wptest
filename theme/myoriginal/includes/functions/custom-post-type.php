@@ -24,6 +24,9 @@ function myoriginal_register_custom_posts() {
       'has_archive' => true,
       'public' => true,
       'show_ui' => true,
+      'supports' => array(
+        'title', 'thumbnail'
+      ),
       'rewrite' => array(
         'with_front' => false
       )
@@ -76,9 +79,9 @@ function myoriginal_work_taxonomy()
       'public' => true,
       'show_admin_column' => true,
       'show_ui' => true,
-      'hierarchical' => true,
+      'hierarchical' => false,
       'rewrite' => array(
-        'slug' => 'work',
+        'slug' => MYORIGINAL_WORK,
       )
     )
   );

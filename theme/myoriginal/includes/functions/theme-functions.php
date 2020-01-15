@@ -9,11 +9,11 @@
 add_action('after_setup_theme', 'myoriginal_setup');
 function myoriginal_setup()
 {
-  // 投稿サムネイルを有効化する
+// 投稿のアタッチメント画像機能の有効化
   add_theme_support('post-thumbnails');
 
   // 画像サイズセット
-  add_image_size('myoriginal-work-image', 800, 0, false);
+  add_image_size('work-thumbnail', 800, '100%', false);
 
   // css, js読み込み
   add_action('wp_enqueue_scripts', 'myoriginal_styles');
@@ -148,7 +148,7 @@ function extend_wp_head()
   if (is_user_logged_in()) {
     $inline_css .= <<< EOF
 #wpadminbar {
-  background: #F4A460;
+  background: #0000cd;
 }
 #wp-admin-bar-new-post {
   display:none;
@@ -179,10 +179,10 @@ function extend_admin_head()
   if (is_user_logged_in()) {
     $inline_css .= <<< EOF
 #adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap {
-  background: #F4A460;
+  background: #0000cd;
   }
 #wpadminbar {
-  background: #F4A460;
+  background: #0000cd;
   }
 #adminmenu .wp-has-current-submenu .wp-submenu, #adminmenu .wp-has-current-submenu .wp-submenu.sub-open, #adminmenu .wp-has-current-submenu.opensub .wp-submenu, #adminmenu a.wp-has-current-submenu:focus+.wp-submenu, .no-js li.wp-has-current-submenu:hover .wp-submenu {
   background: rgba(255,255,255, .1);

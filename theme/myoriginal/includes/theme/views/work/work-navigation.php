@@ -20,14 +20,14 @@ function work_case_navigation($terms)
 
     echo '
       <li class="works__category-nav__item">
-        <a href="/works/">全ての実績</a>
+        <a href="/work/">全ての実績</a>
       </li>
     ';
 
     foreach ($terms as $term) {
       printf(
         '<li class="works__category-nav__item">
-          <a href="/works/%1$s">
+          <a href="/work/%1$s">
             <span class="category">%2$s</span>
           </a>
         </li>',

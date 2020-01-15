@@ -28,10 +28,10 @@ define('MYORIGINAL_WORK_CASE', 'case');
 /*********************************************************/
 ## MYORIGINAL theme functions files
 /*********************************************************/
+require_once MYORIGINAL_INC_DIR . '/functions/theme-functions.php';
 require_once MYORIGINAL_INC_DIR . '/functions/custom-post-type.php';
 require_once MYORIGINAL_INC_DIR . '/functions/custom-functions.php';
 require_once MYORIGINAL_INC_DIR . '/functions/custom-post-functions.php';
-require_once MYORIGINAL_INC_DIR . '/functions/theme-functions.php';
 require_once MYORIGINAL_INC_DIR . '/functions/navigations.php';
 require_once MYORIGINAL_INC_DIR . '/functions/editer-filters.php';
 
